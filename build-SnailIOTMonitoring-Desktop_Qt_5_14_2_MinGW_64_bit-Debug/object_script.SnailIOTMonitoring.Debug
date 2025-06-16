@@ -1,4 +1,5 @@
 debug/baseframe.o
+debug/baseframe.o
 debug/datamanage.o
 debug/homewindow.o
 debug/loginwindow.o

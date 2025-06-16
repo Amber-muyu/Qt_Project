@@ -3,7 +3,7 @@
 
 #include <QWidget>
 #include <QStackedLayout>
-#include "baseframe.h"
+#include "../base/baseframe.h"
 #include "titlebar.h"
 #include "statusbar.h"
 #include "loginwindow.h"

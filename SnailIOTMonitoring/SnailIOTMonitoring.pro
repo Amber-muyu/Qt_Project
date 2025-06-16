@@ -16,36 +16,37 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    baseframe.cpp \
-    datamanage.cpp \
-    homewindow.cpp \
-    loginwindow.cpp \
-    main.cpp \
-    mainwindow.cpp \
-    registerwindow.cpp \
-    resetpasswdwindow.cpp \
-    statusbar.cpp \
-    titlebar.cpp
+    src/base/baseframe.cpp \
+    src/base/baseframe.cpp \
+    src/database/datamanage.cpp \
+    src/ui/homewindow.cpp \
+    src/ui/loginwindow.cpp \
+    src/main.cpp \
+    src/ui/mainwindow.cpp \
+    src/ui/registerwindow.cpp \
+    src/ui/resetpasswdwindow.cpp \
+    src/ui/statusbar.cpp \
+    src/ui/titlebar.cpp
 
 HEADERS += \
-    baseframe.h \
-    datamanage.h \
-    homewindow.h \
-    loginwindow.h \
-    mainwindow.h \
-    registerwindow.h \
-    resetpasswdwindow.h \
-    statusbar.h \
-    titlebar.h
+    src/base/baseframe.h \
+    src/database/datamanage.h \
+    src/ui/homewindow.h \
+    src/ui/loginwindow.h \
+    src/ui/mainwindow.h \
+    src/ui/registerwindow.h \
+    src/ui/resetpasswdwindow.h \
+    src/ui/statusbar.h \
+    src/ui/titlebar.h
 
 FORMS += \
-    homewindow.ui \
-    loginwindow.ui \
-    mainwindow.ui \
-    registerwindow.ui \
-    resetpasswdwindow.ui \
-    statusbar.ui \
-    titlebar.ui
+    src/ui/homewindow.ui \
+    src/ui/loginwindow.ui \
+    src/ui/mainwindow.ui \
+    src/ui/registerwindow.ui \
+    src/ui/resetpasswdwindow.ui \
+    src/ui/statusbar.ui \
+    src/ui/titlebar.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

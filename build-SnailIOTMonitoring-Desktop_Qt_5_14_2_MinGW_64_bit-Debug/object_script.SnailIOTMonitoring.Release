@@ -1,4 +1,5 @@
 release/baseframe.o
+release/baseframe.o
 release/datamanage.o
 release/homewindow.o
 release/loginwindow.o
