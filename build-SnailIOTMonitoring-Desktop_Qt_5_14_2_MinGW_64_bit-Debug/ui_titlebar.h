@@ -55,7 +55,7 @@ public:
         label_2->setSizePolicy(sizePolicy);
         label_2->setMinimumSize(QSize(31, 31));
         label_2->setMaximumSize(QSize(31, 31));
-        label_2->setStyleSheet(QString::fromUtf8("border-image: url(:/images/student.png);"));
+        label_2->setStyleSheet(QString::fromUtf8("border-image: url(:/resources/student.png);"));
 
         horizontalLayout_2->addWidget(label_2);
 

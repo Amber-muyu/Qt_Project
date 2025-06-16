@@ -1,6 +1,8 @@
 #include "loginwindow.h"
 #include "ui_loginwindow.h"
 
+#include "../database/datamanage.h"
+
 LoginWindow::LoginWindow(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::LoginWindow)
@@ -20,8 +22,29 @@ LoginWindow::LoginWindow(QWidget *parent) :
 void LoginWindow::turnMainPage()
 {
     QString username = ui->lineEditUserName->text();
-    emit display(1);
-    emit sendMessage("用户："+username+" 登录成功");
+    QString password = ui->lineEditPassWord->text();
+
+    if(username.isEmpty()){
+        emit sendMessage("请输入用户名");
+        ui->lineEditUserName->clear();
+        return;
+    }
+    if(password.isEmpty()){
+        emit sendMessage("请输入密码");
+        ui->lineEditPassWord->clear();
+        return;
+    }
+
+    DataManage db;
+    if(!db.openDatabase("")){
+        qDebug() << "打开数据库失败";
+        return;
+    }
+
+    if(db.authenticateUser(username,password)){
+        emit display(1);
+        emit sendMessage("用户："+username+" 登录成功");
+    }
 }
 
 void LoginWindow::turnRegisterPage()

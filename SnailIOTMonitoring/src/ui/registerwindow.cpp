@@ -1,6 +1,8 @@
 #include "registerwindow.h"
 #include "ui_registerwindow.h"
 
+#include "../database/datamanage.h"
+
 RegisterWindow::RegisterWindow(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::RegisterWindow)
@@ -20,7 +22,22 @@ RegisterWindow::RegisterWindow(QWidget *parent) :
 
 void RegisterWindow::registerReturnLoginPage()
 {
-    emit display(0);
+    DataManage db;
+    if(!db.openDatabase("")){
+        qDebug() << "打开数据库失败";
+        return;
+    }
+    QVariantMap newUser;
+    newUser["username"] = ui->lineEditRegisterName->text();
+    newUser["password"] = ui->lineEditRegisterPasswd->text();
+    newUser["email"] = ui->lineEditRegisterEmail->text();
+    newUser["phone"] = ui->lineEditRegisterTelephone->text();
+    newUser["role"] = "user";
+
+    if(db.addUser(newUser)){
+        emit sendMessage("注册成功");
+        emit display(0);
+    }
 }
 
 RegisterWindow::~RegisterWindow()

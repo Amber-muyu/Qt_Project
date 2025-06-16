@@ -20,6 +20,7 @@ public slots:
 
 signals:
     void display(int);
+    void sendMessage(const QString&);
 
 private:
     Ui::RegisterWindow *ui;

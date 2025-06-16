@@ -17,7 +17,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     src/base/baseframe.cpp \
-    src/base/baseframe.cpp \
     src/database/datamanage.cpp \
     src/ui/homewindow.cpp \
     src/ui/loginwindow.cpp \

@@ -166,7 +166,7 @@
           </size>
          </property>
          <property name="styleSheet">
-          <string notr="true">border-image: url(:/images/users.png);</string>
+          <string notr="true">border-image: url(:/resources/users.png);</string>
          </property>
          <property name="text">
           <string/>

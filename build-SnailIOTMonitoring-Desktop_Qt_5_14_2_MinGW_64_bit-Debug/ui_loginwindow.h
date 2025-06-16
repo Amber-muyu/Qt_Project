@@ -138,7 +138,7 @@ public:
         labelLogin = new QLabel(LoginWindow);
         labelLogin->setObjectName(QString::fromUtf8("labelLogin"));
         labelLogin->setMinimumSize(QSize(121, 121));
-        labelLogin->setStyleSheet(QString::fromUtf8("border-image: url(:/images/users.png);"));
+        labelLogin->setStyleSheet(QString::fromUtf8("border-image: url(:/resources/users.png);"));
 
         horizontalLayout_5->addWidget(labelLogin);
 

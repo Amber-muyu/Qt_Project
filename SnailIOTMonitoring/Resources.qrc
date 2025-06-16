@@ -1,6 +1,7 @@
 <RCC>
     <qresource prefix="/">
-        <file>../../images/student.png</file>
-        <file>../../images/users.png</file>
+        <file>resources/student.png</file>
+        <file>resources/users.png</file>
+        <file>resources/database_schema.sql</file>
     </qresource>
 </RCC>
