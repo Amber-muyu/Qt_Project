@@ -14,7 +14,7 @@ ResetPasswdWindow::ResetPasswdWindow(QWidget *parent) :
 
 void ResetPasswdWindow::resetReturnLoginPage()
 {
-    UserManage userManager;
+    UserManager userManager;
     QString msg = ui->lineEditResetPasswd->text();
     if(userManager.resetPassword(msg)){
         ui->lineEditResetPasswd->clear();

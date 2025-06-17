@@ -24,7 +24,7 @@ public slots:
 signals:
     void display(int);
     void sendMessage(const QString&);
-
+    void sendUserNameMessage(const QString&);
 private:
     Ui::LoginWindow *ui;
 };

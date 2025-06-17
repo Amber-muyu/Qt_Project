@@ -1,6 +1,6 @@
 debug/baseframe.o
-debug/datamanage.o
-debug/usermanage.o
+debug/datamanager.o
+debug/usermanager.o
 debug/homewindow.o
 debug/loginwindow.o
 debug/main.o
@@ -11,8 +11,8 @@ debug/statusbar.o
 debug/titlebar.o
 debug/qrc_Resources.o
 debug/moc_baseframe.o
-debug/moc_datamanage.o
-debug/moc_usermanage.o
+debug/moc_datamanager.o
+debug/moc_usermanager.o
 debug/moc_homewindow.o
 debug/moc_loginwindow.o
 debug/moc_mainwindow.o

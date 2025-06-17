@@ -1,8 +1,6 @@
 #include "registerwindow.h"
 #include "ui_registerwindow.h"
 
-#include "../database/usermanage.h"
-
 RegisterWindow::RegisterWindow(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::RegisterWindow)
@@ -23,7 +21,7 @@ RegisterWindow::RegisterWindow(QWidget *parent) :
 
 void RegisterWindow::registerReturnLoginPage()
 {
-    UserManage userManager;
+    UserManager userManager;
 
     QVariantMap newUser;
     newUser["username"] = ui->lineEditRegisterName->text();

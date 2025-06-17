@@ -41,6 +41,9 @@ MainWindow::MainWindow(QWidget *parent)
     connect(m_registerWindow,&RegisterWindow::display,m_stackedLayout,&QStackedLayout::setCurrentIndex);
     connect(m_resetPasswdWindow,&ResetPasswdWindow::display,m_stackedLayout,&QStackedLayout::setCurrentIndex);
     connect(m_homeWindow,&HomeWindow::display,m_stackedLayout,&QStackedLayout::setCurrentIndex);
+
+    //用户信息接收
+    connect(m_loginWindow,&LoginWindow::sendUserNameMessage,m_homeWindow,&HomeWindow::getLoginUserInfo);
 }
 
 void MainWindow::showIsMax()

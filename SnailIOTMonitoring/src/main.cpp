@@ -1,7 +1,7 @@
 #include "ui/mainwindow.h"
 
 #include <QApplication>
-#include "database/datamanage.h"
+#include "database/datamanager.h"
 
 int main(int argc, char *argv[])
 {
@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
     MainWindow w;
     w.show();
 
-    DataManage& dbManager = DataManage::instance();
+    DataManager& dbManager = DataManager::instance();
     dbManager.open();  // 使用默认数据库路径
     dbManager.init();
 

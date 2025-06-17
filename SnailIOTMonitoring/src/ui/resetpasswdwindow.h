@@ -3,7 +3,7 @@
 
 #include <QWidget>
 #include "../utils/utils.h"
-#include "../database/usermanage.h"
+#include "../database/usermanager.h"
 
 namespace Ui {
 class ResetPasswdWindow;

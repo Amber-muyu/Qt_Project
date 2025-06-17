@@ -1,7 +1,7 @@
 #include "loginwindow.h"
 #include "ui_loginwindow.h"
 
-#include "../database/usermanage.h"
+#include "../database/usermanager.h"
 
 LoginWindow::LoginWindow(QWidget *parent) :
     QWidget(parent),
@@ -36,13 +36,14 @@ void LoginWindow::turnMainPage()
         return;
     }
 
-    UserManage userManager;
+    UserManager userManager;
 
     if(userManager.authenticate(username,password)){
         ui->lineEditUserName->clear();
         ui->lineEditPassWord->clear();
         emit display(PAGE_HOME);
         emit sendMessage("用户："+username+" 登录成功");
+        emit sendUserNameMessage(username);
     }else {
         ui->lineEditUserName->clear();
         ui->lineEditPassWord->clear();
