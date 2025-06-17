@@ -1,7 +1,7 @@
 #include "loginwindow.h"
 #include "ui_loginwindow.h"
 
-#include "../database/datamanage.h"
+#include "../database/usermanage.h"
 
 LoginWindow::LoginWindow(QWidget *parent) :
     QWidget(parent),
@@ -13,6 +13,7 @@ LoginWindow::LoginWindow(QWidget *parent) :
     ui->lineEditUserName->setClearButtonEnabled(true);
     ui->lineEditPassWord->setPlaceholderText("请输入密码");
     ui->lineEditPassWord->setClearButtonEnabled(true);
+    ui->lineEditPassWord->setEchoMode(QLineEdit::Password);
 
     connect(ui->btnLogin,&QPushButton::clicked,this,&LoginWindow::turnMainPage);
     connect(ui->btnRegister,&QPushButton::clicked,this,&LoginWindow::turnRegisterPage);
@@ -35,26 +36,28 @@ void LoginWindow::turnMainPage()
         return;
     }
 
-    DataManage db;
-    if(!db.openDatabase("")){
-        qDebug() << "打开数据库失败";
-        return;
-    }
+    UserManage userManager;
 
-    if(db.authenticateUser(username,password)){
-        emit display(1);
+    if(userManager.authenticate(username,password)){
+        ui->lineEditUserName->clear();
+        ui->lineEditPassWord->clear();
+        emit display(PAGE_HOME);
         emit sendMessage("用户："+username+" 登录成功");
+    }else {
+        ui->lineEditUserName->clear();
+        ui->lineEditPassWord->clear();
+        emit sendMessage("账号或密码输入错误");
     }
 }
 
 void LoginWindow::turnRegisterPage()
 {
-    emit display(2);
+    emit display(PAGE_REGISERT);
 }
 
 void LoginWindow::turnResetPasswdPage()
 {
-    emit display(3);
+    emit display(PAGE_RESETPASSWD);
 }
 
 LoginWindow::~LoginWindow()

@@ -1,7 +1,7 @@
 #include "registerwindow.h"
 #include "ui_registerwindow.h"
 
-#include "../database/datamanage.h"
+#include "../database/usermanage.h"
 
 RegisterWindow::RegisterWindow(QWidget *parent) :
     QWidget(parent),
@@ -12,6 +12,7 @@ RegisterWindow::RegisterWindow(QWidget *parent) :
     ui->lineEditRegisterName->setClearButtonEnabled(true);
     ui->lineEditRegisterPasswd->setPlaceholderText("请输入密码");
     ui->lineEditRegisterPasswd->setClearButtonEnabled(true);
+    ui->lineEditRegisterPasswd->setEchoMode(QLineEdit::Password);
     ui->lineEditRegisterEmail->setPlaceholderText("请输入邮箱");
     ui->lineEditRegisterEmail->setClearButtonEnabled(true);
     ui->lineEditRegisterTelephone->setPlaceholderText("请输入电话号码");
@@ -22,11 +23,8 @@ RegisterWindow::RegisterWindow(QWidget *parent) :
 
 void RegisterWindow::registerReturnLoginPage()
 {
-    DataManage db;
-    if(!db.openDatabase("")){
-        qDebug() << "打开数据库失败";
-        return;
-    }
+    UserManage userManager;
+
     QVariantMap newUser;
     newUser["username"] = ui->lineEditRegisterName->text();
     newUser["password"] = ui->lineEditRegisterPasswd->text();
@@ -34,9 +32,19 @@ void RegisterWindow::registerReturnLoginPage()
     newUser["phone"] = ui->lineEditRegisterTelephone->text();
     newUser["role"] = "user";
 
-    if(db.addUser(newUser)){
+    if(userManager.addUser(newUser)){
+        ui->lineEditRegisterName->clear();
+        ui->lineEditRegisterPasswd->clear();
+        ui->lineEditRegisterEmail->clear();
+        ui->lineEditRegisterTelephone->clear();
         emit sendMessage("注册成功");
-        emit display(0);
+        emit display(PAGE_LOGIN);
+    }else {
+        ui->lineEditRegisterName->clear();
+        ui->lineEditRegisterPasswd->clear();
+        ui->lineEditRegisterEmail->clear();
+        ui->lineEditRegisterTelephone->clear();
+        emit sendMessage("注册失败");
     }
 }
 

@@ -2,6 +2,7 @@
 #define REGISTERWINDOW_H
 
 #include <QWidget>
+#include "../utils/utils.h"
 
 namespace Ui {
 class RegisterWindow;

@@ -2,6 +2,8 @@
 #define RESETPASSWDWINDOW_H
 
 #include <QWidget>
+#include "../utils/utils.h"
+#include "../database/usermanage.h"
 
 namespace Ui {
 class ResetPasswdWindow;
@@ -20,7 +22,7 @@ public slots:
 
 signals:
     void display(int);
-
+    void sendMessage(const QString&);
 private:
     Ui::ResetPasswdWindow *ui;
 };

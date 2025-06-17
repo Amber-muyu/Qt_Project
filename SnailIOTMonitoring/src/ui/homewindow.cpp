@@ -11,7 +11,7 @@ HomeWindow::HomeWindow(QWidget *parent) :
 
 void HomeWindow::logoutReturnPage()
 {
-    emit display(0);
+    emit display(PAGE_LOGIN);
 }
 
 HomeWindow::~HomeWindow()

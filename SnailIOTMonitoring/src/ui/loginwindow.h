@@ -2,6 +2,7 @@
 #define LOGINWINDOW_H
 
 #include <QWidget>
+#include "../utils/utils.h"
 
 namespace Ui {
 class LoginWindow;

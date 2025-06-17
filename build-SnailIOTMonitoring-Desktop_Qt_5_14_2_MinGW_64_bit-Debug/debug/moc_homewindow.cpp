@@ -7,7 +7,7 @@
 *****************************************************************************/
 
 #include <memory>
-#include "../../SnailIOTMonitoring/homewindow.h"
+#include "../../SnailIOTMonitoring/src/ui/homewindow.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)

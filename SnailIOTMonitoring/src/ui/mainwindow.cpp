@@ -34,6 +34,7 @@ MainWindow::MainWindow(QWidget *parent)
     //状态栏信息显示
     connect(m_loginWindow,&LoginWindow::sendMessage,m_statusBar,&StatusBar::receiveMessage);
     connect(m_registerWindow,&RegisterWindow::sendMessage,m_statusBar,&StatusBar::receiveMessage);
+    connect(m_resetPasswdWindow,&ResetPasswdWindow::sendMessage,m_statusBar,&StatusBar::receiveMessage);
 
     //页面切换
     connect(m_loginWindow,&LoginWindow::display,m_stackedLayout,&QStackedLayout::setCurrentIndex);

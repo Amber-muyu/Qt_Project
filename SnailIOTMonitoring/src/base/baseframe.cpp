@@ -27,10 +27,18 @@ void BaseFrame::mousePressEvent(QMouseEvent *event){
 
 void BaseFrame::closeEvent(QCloseEvent *event)
 {
-    Q_UNUSED(event);
-    QMessageBox msgbox;
-    //msgbox.standardButtons(QMessageBox::Save | QMessageBox::Discard);
-    //switch(msgbox.exec())
+    QMessageBox::StandardButton reply;
+    reply = QMessageBox::question(this,tr("关闭窗口"),tr("你确定要关闭这个页面吗"),QMessageBox::Yes | QMessageBox::No);
+    switch(reply){
+        case QMessageBox::Yes :
+            event->accept();
+            break;
+        case QMessageBox::No :
+            event->ignore();
+            break;
+        default:
+            break;
+    }
 }
 
 #ifdef Q_OS_WIN

@@ -7,7 +7,7 @@
 *****************************************************************************/
 
 #include <memory>
-#include "../../SnailIOTMonitoring/resetpasswdwindow.h"
+#include "../../SnailIOTMonitoring/src/ui/resetpasswdwindow.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_ResetPasswdWindow_t {
-    QByteArrayData data[4];
-    char stringdata0[48];
+    QByteArrayData data[5];
+    char stringdata0[60];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -35,10 +35,11 @@ static const qt_meta_stringdata_ResetPasswdWindow_t qt_meta_stringdata_ResetPass
 QT_MOC_LITERAL(0, 0, 17), // "ResetPasswdWindow"
 QT_MOC_LITERAL(1, 18, 7), // "display"
 QT_MOC_LITERAL(2, 26, 0), // ""
-QT_MOC_LITERAL(3, 27, 20) // "resetReturnLoginPage"
+QT_MOC_LITERAL(3, 27, 11), // "sendMessage"
+QT_MOC_LITERAL(4, 39, 20) // "resetReturnLoginPage"
 
     },
-    "ResetPasswdWindow\0display\0\0"
+    "ResetPasswdWindow\0display\0\0sendMessage\0"
     "resetReturnLoginPage"
 };
 #undef QT_MOC_LITERAL
@@ -49,21 +50,23 @@ static const uint qt_meta_data_ResetPasswdWindow[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-       2,   14, // methods
+       3,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       1,       // signalCount
+       2,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,   24,    2, 0x06 /* Public */,
+       1,    1,   29,    2, 0x06 /* Public */,
+       3,    1,   32,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       3,    0,   27,    2, 0x0a /* Public */,
+       4,    0,   35,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::Int,    2,
+    QMetaType::Void, QMetaType::QString,    2,
 
  // slots: parameters
     QMetaType::Void,
@@ -78,7 +81,8 @@ void ResetPasswdWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, in
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->display((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 1: _t->resetReturnLoginPage(); break;
+        case 1: _t->sendMessage((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 2: _t->resetReturnLoginPage(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -87,6 +91,13 @@ void ResetPasswdWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, in
             using _t = void (ResetPasswdWindow::*)(int );
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&ResetPasswdWindow::display)) {
                 *result = 0;
+                return;
+            }
+        }
+        {
+            using _t = void (ResetPasswdWindow::*)(const QString & );
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&ResetPasswdWindow::sendMessage)) {
+                *result = 1;
                 return;
             }
         }
@@ -122,13 +133,13 @@ int ResetPasswdWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 2)
+        if (_id < 3)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 2;
+        _id -= 3;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 2)
+        if (_id < 3)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 2;
+        _id -= 3;
     }
     return _id;
 }
@@ -138,6 +149,13 @@ void ResetPasswdWindow::display(int _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);
+}
+
+// SIGNAL 1
+void ResetPasswdWindow::sendMessage(const QString & _t1)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    QMetaObject::activate(this, &staticMetaObject, 1, _a);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE

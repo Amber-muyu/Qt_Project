@@ -7,7 +7,7 @@
 *****************************************************************************/
 
 #include <memory>
-#include "../../SnailIOTMonitoring/titlebar.h"
+#include "../../SnailIOTMonitoring/src/ui/titlebar.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)

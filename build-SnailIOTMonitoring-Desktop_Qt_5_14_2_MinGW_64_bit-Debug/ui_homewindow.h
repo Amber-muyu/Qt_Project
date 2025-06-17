@@ -11,7 +11,6 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QWidget>
 
@@ -20,30 +19,24 @@ QT_BEGIN_NAMESPACE
 class Ui_HomeWindow
 {
 public:
-    QLabel *labelLogout;
     QPushButton *btnLogout;
+    QPushButton *pushButton;
+    QPushButton *pushButton_2;
 
     void setupUi(QWidget *HomeWindow)
     {
         if (HomeWindow->objectName().isEmpty())
             HomeWindow->setObjectName(QString::fromUtf8("HomeWindow"));
         HomeWindow->resize(800, 600);
-        labelLogout = new QLabel(HomeWindow);
-        labelLogout->setObjectName(QString::fromUtf8("labelLogout"));
-        labelLogout->setGeometry(QRect(480, 90, 61, 50));
-        labelLogout->setMinimumSize(QSize(50, 50));
-        QFont font;
-        font.setFamily(QString::fromUtf8("Adobe Arabic"));
-        font.setPointSize(16);
-        font.setBold(true);
-        font.setWeight(75);
-        labelLogout->setFont(font);
-        labelLogout->setStyleSheet(QString::fromUtf8("#ForgetLabel[state='normal'],#ForgetLabel[state='selected'] { color: black; }\n"
-"#ForgetLabel[state='normal_hover'],#ForgetLabel[state='selected_hover'] { color: rgb(42,112,241); }\n"
-""));
         btnLogout = new QPushButton(HomeWindow);
         btnLogout->setObjectName(QString::fromUtf8("btnLogout"));
-        btnLogout->setGeometry(QRect(640, 100, 93, 61));
+        btnLogout->setGeometry(QRect(40, 190, 121, 51));
+        pushButton = new QPushButton(HomeWindow);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        pushButton->setGeometry(QRect(30, 10, 131, 61));
+        pushButton_2 = new QPushButton(HomeWindow);
+        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
+        pushButton_2->setGeometry(QRect(30, 100, 131, 61));
 
         retranslateUi(HomeWindow);
 
@@ -53,8 +46,9 @@ public:
     void retranslateUi(QWidget *HomeWindow)
     {
         HomeWindow->setWindowTitle(QCoreApplication::translate("HomeWindow", "Form", nullptr));
-        labelLogout->setText(QCoreApplication::translate("HomeWindow", "\346\263\250\351\224\200", nullptr));
         btnLogout->setText(QCoreApplication::translate("HomeWindow", "\346\263\250\351\224\200", nullptr));
+        pushButton->setText(QCoreApplication::translate("HomeWindow", "\346\237\245\347\234\213\344\270\252\344\272\272\344\277\241\346\201\257", nullptr));
+        pushButton_2->setText(QCoreApplication::translate("HomeWindow", "\346\237\245\347\234\213\350\256\276\345\244\207\344\277\241\346\201\257", nullptr));
     } // retranslateUi
 
 };
