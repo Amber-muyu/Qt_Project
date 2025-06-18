@@ -4,6 +4,7 @@
 #include <QWidget>
 #include "../utils/utils.h"
 #include "../controller/usercontroller.h"
+#include "../controller/admincontroller.h"
 
 namespace Ui {
 class HomeWindow;
@@ -20,6 +21,7 @@ public:
 public slots:
     void logoutReturnPage();
     void getLoginUserName(const QString& msg);
+    void userPage();
 
 signals:
     void display(int);
@@ -28,7 +30,9 @@ signals:
 
 private:
     Ui::HomeWindow *ui;
+    QString m_userName;
     UserController* m_userController;
+    AdminController* m_adminController;
 };
 
 #endif // HOMEWINDOW_H

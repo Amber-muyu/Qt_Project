@@ -17,6 +17,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     src/base/baseframe.cpp \
+    src/controller/admincontroller.cpp \
     src/controller/usercontroller.cpp \
     src/database/datamanager.cpp \
     src/database/usermanager.cpp \
@@ -33,6 +34,7 @@ SOURCES += \
 
 HEADERS += \
     src/base/baseframe.h \
+    src/controller/admincontroller.h \
     src/controller/usercontroller.h \
     src/database/datamanager.h \
     src/database/usermanager.h \
@@ -48,6 +50,7 @@ HEADERS += \
     src/utils/utils.h \
 
 FORMS += \
+    src/controller/admincontroller.ui \
     src/controller/usercontroller.ui \
     src/modify/passwordmodify.ui \
     src/modify/usermodify.ui \

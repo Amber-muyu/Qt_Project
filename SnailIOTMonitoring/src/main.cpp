@@ -7,8 +7,6 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    MainWindow w;
-    w.show();
 
     DataManager& dbManager = DataManager::instance();
     dbManager.open();  // 使用默认数据库路径
@@ -16,5 +14,7 @@ int main(int argc, char *argv[])
 
     UserManager::instance();
 
+    MainWindow w;
+    w.show();
     return a.exec();
 }

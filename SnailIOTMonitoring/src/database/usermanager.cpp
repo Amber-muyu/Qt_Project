@@ -122,6 +122,8 @@ bool UserManager::updateUser(const QString& username, const QVariantMap &updateD
         }
     }
 
+    setClauses.append("updated_at = CURRENT_TIMESTAMP");
+
     QString sql = QString("UPDATE users SET %1 WHERE username = :username").arg(setClauses.join(", "));
 
     QSqlQuery query(m_db);
@@ -221,6 +223,10 @@ bool UserManager::changePassword(const QString &username, const QString &newPass
 
 bool UserManager::resetPassword(const QString &msg)
 {
+    if (!isEmailExist(msg) && !isPhoneExist(msg)) {
+        return false;
+    }
+
     QSqlQuery query(m_db);
     query.prepare("UPDATE users SET password = :password WHERE email = :email OR phone = :phone");
     query.bindValue(":password", hashPassword("123456")); //改成默认密码
@@ -229,6 +235,11 @@ bool UserManager::resetPassword(const QString &msg)
 
     if (!query.exec()) {
         qCritical() << "Failed to reset password:" << query.lastError().text();
+        return false;
+    }
+
+    if (query.numRowsAffected() == 0) {
+        qWarning() << "No user found with email or phone:" << msg;
         return false;
     }
 

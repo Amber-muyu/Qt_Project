@@ -24,6 +24,7 @@ class Ui_UserController
 {
 public:
     QGridLayout *gridLayout;
+    QLabel *label;
     QSpacerItem *verticalSpacer;
     QSpacerItem *horizontalSpacer_4;
     QGridLayout *gridLayout_4;
@@ -60,13 +61,24 @@ public:
         UserController->resize(800, 600);
         gridLayout = new QGridLayout(UserController);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
-        verticalSpacer = new QSpacerItem(20, 98, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        label = new QLabel(UserController);
+        label->setObjectName(QString::fromUtf8("label"));
+        QFont font;
+        font.setFamily(QString::fromUtf8("Adobe Arabic"));
+        font.setPointSize(14);
+        font.setBold(true);
+        font.setWeight(75);
+        label->setFont(font);
 
-        gridLayout->addItem(verticalSpacer, 0, 1, 1, 1);
+        gridLayout->addWidget(label, 0, 0, 1, 3);
+
+        verticalSpacer = new QSpacerItem(20, 64, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout->addItem(verticalSpacer, 1, 1, 1, 1);
 
         horizontalSpacer_4 = new QSpacerItem(151, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        gridLayout->addItem(horizontalSpacer_4, 1, 0, 1, 1);
+        gridLayout->addItem(horizontalSpacer_4, 2, 0, 1, 1);
 
         gridLayout_4 = new QGridLayout();
         gridLayout_4->setObjectName(QString::fromUtf8("gridLayout_4"));
@@ -77,12 +89,12 @@ public:
         labelUserName = new QLabel(UserController);
         labelUserName->setObjectName(QString::fromUtf8("labelUserName"));
         labelUserName->setMinimumSize(QSize(100, 50));
-        QFont font;
-        font.setFamily(QString::fromUtf8("Adobe Arabic"));
-        font.setPointSize(18);
-        font.setBold(true);
-        font.setWeight(75);
-        labelUserName->setFont(font);
+        QFont font1;
+        font1.setFamily(QString::fromUtf8("Adobe Arabic"));
+        font1.setPointSize(18);
+        font1.setBold(true);
+        font1.setWeight(75);
+        labelUserName->setFont(font1);
         labelUserName->setAlignment(Qt::AlignCenter);
 
         horizontalLayout->addWidget(labelUserName);
@@ -90,12 +102,12 @@ public:
         labelTextUserName = new QLabel(UserController);
         labelTextUserName->setObjectName(QString::fromUtf8("labelTextUserName"));
         labelTextUserName->setMinimumSize(QSize(350, 50));
-        QFont font1;
-        font1.setFamily(QString::fromUtf8("Adobe Arabic"));
-        font1.setPointSize(16);
-        font1.setBold(true);
-        font1.setWeight(75);
-        labelTextUserName->setFont(font1);
+        QFont font2;
+        font2.setFamily(QString::fromUtf8("Adobe Arabic"));
+        font2.setPointSize(16);
+        font2.setBold(true);
+        font2.setWeight(75);
+        labelTextUserName->setFont(font2);
         labelTextUserName->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);"));
 
         horizontalLayout->addWidget(labelTextUserName);
@@ -112,7 +124,7 @@ public:
         labelEmail = new QLabel(UserController);
         labelEmail->setObjectName(QString::fromUtf8("labelEmail"));
         labelEmail->setMinimumSize(QSize(100, 50));
-        labelEmail->setFont(font);
+        labelEmail->setFont(font1);
         labelEmail->setAlignment(Qt::AlignCenter);
 
         horizontalLayout_2->addWidget(labelEmail);
@@ -120,7 +132,7 @@ public:
         labelTextEmail = new QLabel(UserController);
         labelTextEmail->setObjectName(QString::fromUtf8("labelTextEmail"));
         labelTextEmail->setMinimumSize(QSize(350, 50));
-        labelTextEmail->setFont(font1);
+        labelTextEmail->setFont(font2);
         labelTextEmail->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);"));
 
         horizontalLayout_2->addWidget(labelTextEmail);
@@ -137,7 +149,7 @@ public:
         labelPhone = new QLabel(UserController);
         labelPhone->setObjectName(QString::fromUtf8("labelPhone"));
         labelPhone->setMinimumSize(QSize(100, 50));
-        labelPhone->setFont(font);
+        labelPhone->setFont(font1);
         labelPhone->setAlignment(Qt::AlignCenter);
 
         horizontalLayout_3->addWidget(labelPhone);
@@ -145,7 +157,7 @@ public:
         labelTextPhone = new QLabel(UserController);
         labelTextPhone->setObjectName(QString::fromUtf8("labelTextPhone"));
         labelTextPhone->setMinimumSize(QSize(350, 50));
-        labelTextPhone->setFont(font1);
+        labelTextPhone->setFont(font2);
         labelTextPhone->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);"));
 
         horizontalLayout_3->addWidget(labelTextPhone);
@@ -162,7 +174,7 @@ public:
         labelRole = new QLabel(UserController);
         labelRole->setObjectName(QString::fromUtf8("labelRole"));
         labelRole->setMinimumSize(QSize(100, 50));
-        labelRole->setFont(font);
+        labelRole->setFont(font1);
         labelRole->setAlignment(Qt::AlignCenter);
 
         horizontalLayout_4->addWidget(labelRole);
@@ -170,7 +182,7 @@ public:
         labelTextRole = new QLabel(UserController);
         labelTextRole->setObjectName(QString::fromUtf8("labelTextRole"));
         labelTextRole->setMinimumSize(QSize(350, 50));
-        labelTextRole->setFont(font1);
+        labelTextRole->setFont(font2);
         labelTextRole->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);"));
 
         horizontalLayout_4->addWidget(labelTextRole);
@@ -215,15 +227,15 @@ public:
         gridLayout_4->addLayout(horizontalLayout_5, 1, 0, 1, 1);
 
 
-        gridLayout->addLayout(gridLayout_4, 1, 1, 1, 1);
+        gridLayout->addLayout(gridLayout_4, 2, 1, 1, 1);
 
         horizontalSpacer_5 = new QSpacerItem(151, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        gridLayout->addItem(horizontalSpacer_5, 1, 2, 1, 1);
+        gridLayout->addItem(horizontalSpacer_5, 2, 2, 1, 1);
 
         verticalSpacer_6 = new QSpacerItem(20, 97, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        gridLayout->addItem(verticalSpacer_6, 2, 1, 1, 1);
+        gridLayout->addItem(verticalSpacer_6, 3, 1, 1, 1);
 
 
         retranslateUi(UserController);
@@ -234,6 +246,7 @@ public:
     void retranslateUi(QWidget *UserController)
     {
         UserController->setWindowTitle(QCoreApplication::translate("UserController", "Form", nullptr));
+        label->setText(QCoreApplication::translate("UserController", "\347\224\250\346\210\267\344\270\252\344\272\272\344\277\241\346\201\257\346\230\276\347\244\272", nullptr));
         labelUserName->setText(QCoreApplication::translate("UserController", "\347\224\250\346\210\267\357\274\232", nullptr));
         labelTextUserName->setText(QString());
         labelEmail->setText(QCoreApplication::translate("UserController", "\351\202\256\347\256\261\357\274\232", nullptr));

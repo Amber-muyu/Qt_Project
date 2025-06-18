@@ -1,4 +1,5 @@
 release/baseframe.o
+release/admincontroller.o
 release/usercontroller.o
 release/datamanager.o
 release/usermanager.o
@@ -14,6 +15,7 @@ release/statusbar.o
 release/titlebar.o
 release/qrc_Resources.o
 release/moc_baseframe.o
+release/moc_admincontroller.o
 release/moc_usercontroller.o
 release/moc_datamanager.o
 release/moc_usermanager.o

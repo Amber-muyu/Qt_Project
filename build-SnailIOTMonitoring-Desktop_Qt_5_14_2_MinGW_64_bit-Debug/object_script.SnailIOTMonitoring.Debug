@@ -1,4 +1,5 @@
 debug/baseframe.o
+debug/admincontroller.o
 debug/usercontroller.o
 debug/datamanager.o
 debug/usermanager.o
@@ -14,6 +15,7 @@ debug/statusbar.o
 debug/titlebar.o
 debug/qrc_Resources.o
 debug/moc_baseframe.o
+debug/moc_admincontroller.o
 debug/moc_usercontroller.o
 debug/moc_datamanager.o
 debug/moc_usermanager.o
