@@ -1,6 +1,9 @@
 debug/baseframe.o
+debug/usercontroller.o
 debug/datamanager.o
 debug/usermanager.o
+debug/passwordmodify.o
+debug/usermodify.o
 debug/homewindow.o
 debug/loginwindow.o
 debug/main.o
@@ -11,8 +14,11 @@ debug/statusbar.o
 debug/titlebar.o
 debug/qrc_Resources.o
 debug/moc_baseframe.o
+debug/moc_usercontroller.o
 debug/moc_datamanager.o
 debug/moc_usermanager.o
+debug/moc_passwordmodify.o
+debug/moc_usermodify.o
 debug/moc_homewindow.o
 debug/moc_loginwindow.o
 debug/moc_mainwindow.o

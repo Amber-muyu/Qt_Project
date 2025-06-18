@@ -1,8 +1,6 @@
 #include "loginwindow.h"
 #include "ui_loginwindow.h"
 
-#include "../database/usermanager.h"
-
 LoginWindow::LoginWindow(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::LoginWindow)
@@ -36,7 +34,7 @@ void LoginWindow::turnMainPage()
         return;
     }
 
-    UserManager userManager;
+    UserManager &userManager = UserManager::instance();
 
     if(userManager.authenticate(username,password)){
         ui->lineEditUserName->clear();

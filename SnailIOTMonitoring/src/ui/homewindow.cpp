@@ -7,6 +7,10 @@ HomeWindow::HomeWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    m_userController = new UserController;
+
+    ui->stackedWidget->addWidget(m_userController);
+
     //页面切换
     connect(ui->btnUser,&QPushButton::clicked,this,[=]{ emit changePage(0);});
     connect(ui->btnDevice,&QPushButton::clicked,this,[=]{ emit changePage(1);});
@@ -17,7 +21,7 @@ HomeWindow::HomeWindow(QWidget *parent) :
     connect(ui->btnLog,&QPushButton::clicked,this,[=]{ emit changePage(6);});
 
     //用户管理页面
-    //connect(ui->btnInfoModify,&QPushButton::clicked,this,&HomeWindow::userInfoModify);
+    connect(this,&HomeWindow::loginUserName,m_userController,&UserController::getLoginUserInfo);
 
     //登出
     connect(ui->btnLogout,&QPushButton::clicked,this,&HomeWindow::logoutReturnPage);
@@ -30,20 +34,9 @@ void HomeWindow::logoutReturnPage()
     emit display(PAGE_LOGIN);
 }
 
-void HomeWindow::getLoginUserInfo(const QString &msg)
+void HomeWindow::getLoginUserName(const QString &msg)
 {
-    UserManager usermanager;
-    QVariantMap user = usermanager.getUserByUsername(msg);
-    ui->labelTextUserName->setText(user.value("username").toString());
-    ui->labelTextEmail->setText(user.value("email").toString());
-    ui->labelTextPhone->setText(user.value("phone").toString());
-    ui->labelTextRole->setText(user.value("role").toString());
-}
-
-void HomeWindow::userInfoModify()
-{
-//    UserManager usermanager;
-//    QVariantMap updates;
+    emit loginUserName(msg);
 }
 
 HomeWindow::~HomeWindow()

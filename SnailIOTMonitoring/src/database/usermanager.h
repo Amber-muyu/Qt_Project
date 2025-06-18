@@ -13,6 +13,7 @@ class UserManager : public QObject
 public:
     explicit UserManager(QObject *parent = nullptr);
 
+    static UserManager& instance();  // 单例访问接口
     // 用户操作
     bool addUser(const QVariantMap &userData);
     bool authenticate(const QString &username, const QString &password);
@@ -29,6 +30,7 @@ public:
     // 权限管理
     bool setUserRole(int userId, const QString &role);
     QString getUserRole(int userId);
+    QString hashPassword(const QString &password);
 
 signals:
     void userAdded(int userId);
@@ -40,7 +42,6 @@ signals:
 private:
     DataManager &m_dbManager;
     QSqlDatabase m_db;
-    QString hashPassword(const QString &password);
     bool validateUserData(const QVariantMap &userData);
 };
 

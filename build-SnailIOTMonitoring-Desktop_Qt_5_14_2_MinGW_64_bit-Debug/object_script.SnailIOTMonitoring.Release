@@ -1,6 +1,9 @@
 release/baseframe.o
+release/usercontroller.o
 release/datamanager.o
 release/usermanager.o
+release/passwordmodify.o
+release/usermodify.o
 release/homewindow.o
 release/loginwindow.o
 release/main.o
@@ -11,8 +14,11 @@ release/statusbar.o
 release/titlebar.o
 release/qrc_Resources.o
 release/moc_baseframe.o
+release/moc_usercontroller.o
 release/moc_datamanager.o
 release/moc_usermanager.o
+release/moc_passwordmodify.o
+release/moc_usermodify.o
 release/moc_homewindow.o
 release/moc_loginwindow.o
 release/moc_mainwindow.o

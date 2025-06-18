@@ -10,6 +10,12 @@ UserManager::UserManager(QObject *parent)
 {
 }
 
+UserManager& UserManager::instance()
+{
+    static UserManager instance;
+    return instance;
+}
+
 bool UserManager::addUser(const QVariantMap &userData)
 {
     if (!validateUserData(userData)) {

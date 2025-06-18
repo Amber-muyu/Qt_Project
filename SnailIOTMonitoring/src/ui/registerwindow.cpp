@@ -21,7 +21,7 @@ RegisterWindow::RegisterWindow(QWidget *parent) :
 
 void RegisterWindow::registerReturnLoginPage()
 {
-    UserManager userManager;
+    UserManager &userManager = UserManager::instance();
 
     QVariantMap newUser;
     newUser["username"] = ui->lineEditRegisterName->text();

@@ -43,7 +43,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(m_homeWindow,&HomeWindow::display,m_stackedLayout,&QStackedLayout::setCurrentIndex);
 
     //用户信息接收
-    connect(m_loginWindow,&LoginWindow::sendUserNameMessage,m_homeWindow,&HomeWindow::getLoginUserInfo);
+    connect(m_loginWindow,&LoginWindow::sendUserNameMessage,m_homeWindow,&HomeWindow::getLoginUserName);
 }
 
 void MainWindow::showIsMax()

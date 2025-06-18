@@ -3,7 +3,7 @@
 
 #include <QWidget>
 #include "../utils/utils.h"
-#include "../database/usermanager.h"
+#include "../controller/usercontroller.h"
 
 namespace Ui {
 class HomeWindow;
@@ -19,15 +19,16 @@ public:
 
 public slots:
     void logoutReturnPage();
-    void getLoginUserInfo(const QString& msg);
-    void userInfoModify();
+    void getLoginUserName(const QString& msg);
 
 signals:
     void display(int);
     void changePage(int);
+    void loginUserName(const QString&);
 
 private:
     Ui::HomeWindow *ui;
+    UserController* m_userController;
 };
 
 #endif // HOMEWINDOW_H

@@ -23,7 +23,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_HomeWindow_t {
     QByteArrayData data[8];
-    char stringdata0[84];
+    char stringdata0[83];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -36,15 +36,15 @@ QT_MOC_LITERAL(0, 0, 10), // "HomeWindow"
 QT_MOC_LITERAL(1, 11, 7), // "display"
 QT_MOC_LITERAL(2, 19, 0), // ""
 QT_MOC_LITERAL(3, 20, 10), // "changePage"
-QT_MOC_LITERAL(4, 31, 16), // "logoutReturnPage"
-QT_MOC_LITERAL(5, 48, 16), // "getLoginUserInfo"
-QT_MOC_LITERAL(6, 65, 3), // "msg"
-QT_MOC_LITERAL(7, 69, 14) // "userInfoModify"
+QT_MOC_LITERAL(4, 31, 13), // "loginUserName"
+QT_MOC_LITERAL(5, 45, 16), // "logoutReturnPage"
+QT_MOC_LITERAL(6, 62, 16), // "getLoginUserName"
+QT_MOC_LITERAL(7, 79, 3) // "msg"
 
     },
     "HomeWindow\0display\0\0changePage\0"
-    "logoutReturnPage\0getLoginUserInfo\0msg\0"
-    "userInfoModify"
+    "loginUserName\0logoutReturnPage\0"
+    "getLoginUserName\0msg"
 };
 #undef QT_MOC_LITERAL
 
@@ -59,25 +59,25 @@ static const uint qt_meta_data_HomeWindow[] = {
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       2,       // signalCount
+       3,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
        1,    1,   39,    2, 0x06 /* Public */,
        3,    1,   42,    2, 0x06 /* Public */,
+       4,    1,   45,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       4,    0,   45,    2, 0x0a /* Public */,
-       5,    1,   46,    2, 0x0a /* Public */,
-       7,    0,   49,    2, 0x0a /* Public */,
+       5,    0,   48,    2, 0x0a /* Public */,
+       6,    1,   49,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::Int,    2,
     QMetaType::Void, QMetaType::Int,    2,
+    QMetaType::Void, QMetaType::QString,    2,
 
  // slots: parameters
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QString,    6,
-    QMetaType::Void,
+    QMetaType::Void, QMetaType::QString,    7,
 
        0        // eod
 };
@@ -90,9 +90,9 @@ void HomeWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         switch (_id) {
         case 0: _t->display((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 1: _t->changePage((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 2: _t->logoutReturnPage(); break;
-        case 3: _t->getLoginUserInfo((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 4: _t->userInfoModify(); break;
+        case 2: _t->loginUserName((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 3: _t->logoutReturnPage(); break;
+        case 4: _t->getLoginUserName((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -108,6 +108,13 @@ void HomeWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
             using _t = void (HomeWindow::*)(int );
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&HomeWindow::changePage)) {
                 *result = 1;
+                return;
+            }
+        }
+        {
+            using _t = void (HomeWindow::*)(const QString & );
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&HomeWindow::loginUserName)) {
+                *result = 2;
                 return;
             }
         }
@@ -166,6 +173,13 @@ void HomeWindow::changePage(int _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 1, _a);
+}
+
+// SIGNAL 2
+void HomeWindow::loginUserName(const QString & _t1)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    QMetaObject::activate(this, &staticMetaObject, 2, _a);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE
