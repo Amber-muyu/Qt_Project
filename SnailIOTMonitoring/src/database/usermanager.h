@@ -18,9 +18,11 @@ public:
     bool addUser(const QVariantMap &userData);
     bool authenticate(const QString &username, const QString &password);
     bool updateUser(const QString& username, const QVariantMap &updateData);
+    bool updateUserById(int userId, const QVariantMap &updateData);
     bool deleteUser(int userId);
     QVariantMap getUser(int userId);
     QVariantMap getUserByUsername(const QString &username);
+    QList<QVariantMap> searchUsers(const QString &keyword);
     QList<QVariantMap> getAllUsers();
     bool changePassword(const QString &username, const QString &newPassword);
     bool resetPassword(const QString& msg);

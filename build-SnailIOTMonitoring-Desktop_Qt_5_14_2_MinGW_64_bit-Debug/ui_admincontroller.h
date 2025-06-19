@@ -60,7 +60,9 @@ public:
         widget = new QWidget(AdminController);
         widget->setObjectName(QString::fromUtf8("widget"));
         gridLayout = new QGridLayout(widget);
+        gridLayout->setSpacing(5);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
+        gridLayout->setContentsMargins(5, 5, 5, 5);
         lineEditSelectUser = new QLineEdit(widget);
         lineEditSelectUser->setObjectName(QString::fromUtf8("lineEditSelectUser"));
         lineEditSelectUser->setMinimumSize(QSize(210, 30));
@@ -121,7 +123,7 @@ public:
     {
         AdminController->setWindowTitle(QCoreApplication::translate("AdminController", "Form", nullptr));
         labelTitle->setText(QCoreApplication::translate("AdminController", "\347\224\250\346\210\267\344\277\241\346\201\257\347\256\241\347\220\206", nullptr));
-        btnAddUser->setText(QCoreApplication::translate("AdminController", "\347\224\250\346\210\267\345\257\274\345\205\245", nullptr));
+        btnAddUser->setText(QCoreApplication::translate("AdminController", "\346\226\260\345\242\236\347\224\250\346\210\267", nullptr));
         btnModifyUser->setText(QCoreApplication::translate("AdminController", "\344\277\256\346\224\271\347\224\250\346\210\267", nullptr));
         btnDeleteUser->setText(QCoreApplication::translate("AdminController", "\345\210\240\351\231\244\347\224\250\346\210\267", nullptr));
         labelSearch->setText(QCoreApplication::translate("AdminController", "\346\220\234\347\264\242", nullptr));

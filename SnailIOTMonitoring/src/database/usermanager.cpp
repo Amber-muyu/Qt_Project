@@ -112,6 +112,14 @@ bool UserManager::updateUser(const QString& username, const QVariantMap &updateD
         return false;
     }
 
+    if (updateData.contains("role")) {
+        const QString role = updateData["role"].toString();
+        if (role != "admin" && role != "user") {
+            qWarning() << "Invalid role, must be 'admin' or 'user'";
+            return false;
+        }
+    }
+
     for (auto it = updateData.begin(); it != updateData.end(); ++it) {
         if (it.key() == "password") {
             setClauses.append("password = :password");
@@ -139,6 +147,68 @@ bool UserManager::updateUser(const QString& username, const QVariantMap &updateD
     }
 
     emit userUpdated(username);
+    return true;
+}
+
+bool UserManager::updateUserById(int userId, const QVariantMap &updateData)
+{
+    if (updateData.isEmpty()) {
+        return false;
+    }
+
+    QStringList setClauses;
+    QVariantMap params;
+    params["user_id"] = userId;
+
+    if (updateData.contains("username") && isUsernameExist(updateData["username"].toString())) {
+        qWarning() << "Username already exists:" << updateData["username"].toString();
+        return false;
+    }
+
+    if (updateData.contains("email") && isEmailExist(updateData["email"].toString())) {
+        qWarning() << "Email already exists:" << updateData["email"].toString();
+        return false;
+    }
+
+    if (updateData.contains("phone") && isPhoneExist(updateData["phone"].toString())) {
+        qWarning() << "Phone already exists:" << updateData["phone"].toString();
+        return false;
+    }
+
+    if (updateData.contains("role")) {
+        QString role = updateData["role"].toString();
+        if (role != "admin" && role != "user") {
+            qWarning() << "Invalid role, must be 'admin' or 'user'";
+            return false;
+        }
+    }
+
+    for (auto it = updateData.begin(); it != updateData.end(); ++it) {
+        if (it.key() == "password") {
+            setClauses.append("password = :password");
+            params["password"] = hashPassword(it.value().toString());
+        } else {
+            setClauses.append(QString("%1 = :%1").arg(it.key()));
+            params[it.key()] = it.value();
+        }
+    }
+
+    setClauses.append("updated_at = CURRENT_TIMESTAMP");
+
+    QString sql = QString("UPDATE users SET %1 WHERE user_id = :user_id")
+            .arg(setClauses.join(", "));
+
+    QSqlQuery query(m_db);
+    query.prepare(sql);
+    for (auto it = params.begin(); it != params.end(); ++it) {
+        query.bindValue(":" + it.key(), it.value());
+    }
+
+    if (!query.exec()) {
+        qCritical() << "Failed to update user by ID:" << query.lastError().text();
+        return false;
+    }
+
     return true;
 }
 
@@ -187,6 +257,38 @@ QVariantMap UserManager::getUserByUsername(const QString &username)
     }
 
     return user;
+}
+
+QList<QVariantMap> UserManager::searchUsers(const QString &keyword)
+{
+    QList<QVariantMap> users;
+
+    // 模糊搜索用户名、邮箱或电话
+    QSqlQuery query(m_db);
+    query.prepare(R"(
+                  SELECT * FROM users
+                  WHERE username LIKE :kw OR email LIKE :kw OR phone LIKE :kw
+                  ORDER BY username
+                  )");
+
+    QString pattern = "%" + keyword + "%";
+    query.bindValue(":kw", pattern);
+
+    if (!query.exec()) {
+        qCritical() << "Search users failed:" << query.lastError().text();
+        return users;
+    }
+
+    while (query.next()) {
+        QVariantMap user;
+        QSqlRecord record = query.record();
+        for (int i = 0; i < record.count(); ++i) {
+            user[record.fieldName(i)] = query.value(i);
+        }
+        users.append(user);
+    }
+
+    return users;
 }
 
 QList<QVariantMap> UserManager::getAllUsers()
@@ -301,7 +403,6 @@ bool UserManager::setUserRole(int userId, const QString &role)
         return false;
     }
 
-    //emit userUpdated(userId);
     return true;
 }
 
@@ -339,6 +440,14 @@ bool UserManager::validateUserData(const QVariantMap &userData)
         QRegExp emailRegex(R"(\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b)", Qt::CaseInsensitive);
         if (!emailRegex.exactMatch(userData["email"].toString())) {
             qWarning() << "Invalid email format";
+            return false;
+        }
+    }
+
+    if (userData.contains("phone") && !userData["phone"].toString().isEmpty()) {
+        QRegExp phoneRegex("^1[3-9]\\d{9}$");
+        if (!phoneRegex.exactMatch(userData["phone"].toString())) {
+            qWarning() << "Invalid phone number format";
             return false;
         }
     }

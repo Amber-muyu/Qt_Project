@@ -43,7 +43,6 @@ void UserController::userPassWordModify()
     emit sendModifyUserInfo(ui->labelTextUserName->text());
 }
 
-
 UserController::~UserController()
 {
     delete ui;

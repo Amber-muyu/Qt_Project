@@ -5,6 +5,8 @@
 #include "../utils/utils.h"
 #include "../controller/usercontroller.h"
 #include "../controller/admincontroller.h"
+#include "../controller/deviceusercontroller.h"
+#include "../controller/deviceadmincontroller.h"
 
 namespace Ui {
 class HomeWindow;
@@ -22,6 +24,7 @@ public slots:
     void logoutReturnPage();
     void getLoginUserName(const QString& msg);
     void userPage();
+    void devicePage();
 
 signals:
     void display(int);
@@ -33,6 +36,8 @@ private:
     QString m_userName;
     UserController* m_userController;
     AdminController* m_adminController;
+    DeviceUserController* m_deviceUserController;
+    DeviceAdminController* m_deviceAdmincontroller;
 };
 
 #endif // HOMEWINDOW_H

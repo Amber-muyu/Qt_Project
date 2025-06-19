@@ -6,4 +6,9 @@
 #define PAGE_REGISERT 2
 #define PAGE_RESETPASSWD 3
 
+#define PAGE_USERINFO_USER 1
+#define PAGE_USERINFO_ADMIN 2
+#define PAGE_DEVICE_USER 3
+#define PAGE_DEVICE_ADMIN 4
+
 #endif // UTILS_H

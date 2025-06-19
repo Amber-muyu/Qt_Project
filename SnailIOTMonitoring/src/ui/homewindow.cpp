@@ -9,18 +9,22 @@ HomeWindow::HomeWindow(QWidget *parent) :
 
     m_userController = new UserController;
     m_adminController = new AdminController;
+    m_deviceUserController = new DeviceUserController;
+    m_deviceAdmincontroller = new DeviceAdminController;
 
     ui->stackedWidget->addWidget(m_userController);
     ui->stackedWidget->addWidget(m_adminController);
+    ui->stackedWidget->addWidget(m_deviceUserController);
+    ui->stackedWidget->addWidget(m_deviceAdmincontroller);
 
     //页面切换
     connect(ui->btnUser,&QPushButton::clicked,this,&HomeWindow::userPage);
-    connect(ui->btnDevice,&QPushButton::clicked,this,[=](){ emit changePage(3);});
-    connect(ui->btnData,&QPushButton::clicked,this,[=](){ emit changePage(3);});
-    connect(ui->btnAlarm,&QPushButton::clicked,this,[=](){ emit changePage(4);});
-    connect(ui->btnDataAnalysis,&QPushButton::clicked,[=](){ emit changePage(5);});
-    connect(ui->btnSystem,&QPushButton::clicked,this,[=](){ emit changePage(6);});
-    connect(ui->btnLog,&QPushButton::clicked,this,[=](){ emit changePage(7);});
+    connect(ui->btnDevice,&QPushButton::clicked,this,&HomeWindow::devicePage);
+    connect(ui->btnData,&QPushButton::clicked,this,[=](){ emit changePage(7);});
+    connect(ui->btnAlarm,&QPushButton::clicked,this,[=](){ emit changePage(8);});
+    connect(ui->btnDataAnalysis,&QPushButton::clicked,[=](){ emit changePage(9);});
+    connect(ui->btnSystem,&QPushButton::clicked,this,[=](){ emit changePage(10);});
+    connect(ui->btnLog,&QPushButton::clicked,this,[=](){ emit changePage(11);});
 
     //用户管理页面
     connect(this,&HomeWindow::loginUserName,m_userController,&UserController::getLoginUserInfo);
@@ -28,6 +32,7 @@ HomeWindow::HomeWindow(QWidget *parent) :
     //登出
     connect(ui->btnLogout,&QPushButton::clicked,this,&HomeWindow::logoutReturnPage);
 
+    //界面切换
     connect(this,&HomeWindow::changePage,ui->stackedWidget,&QStackedWidget::setCurrentIndex);
 }
 
@@ -36,9 +41,20 @@ void HomeWindow::userPage()
     UserManager &userManager = UserManager::instance();
     QVariantMap user = userManager.getUserByUsername(m_userName);
     if(user.value("role").toString() == "user"){
-        emit changePage(1);
+        emit changePage(PAGE_USERINFO_USER);
     }else {
-        emit changePage(2);
+        emit changePage(PAGE_USERINFO_ADMIN);
+    }
+}
+
+void HomeWindow::devicePage()
+{
+    UserManager &userManager = UserManager::instance();
+    QVariantMap user = userManager.getUserByUsername(m_userName);
+    if(user.value("role").toString() == "user"){
+        emit changePage(PAGE_DEVICE_USER);
+    }else {
+        emit changePage(PAGE_DEVICE_ADMIN);
     }
 }
 

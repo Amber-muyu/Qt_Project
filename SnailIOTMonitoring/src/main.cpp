@@ -3,6 +3,7 @@
 #include <QApplication>
 #include "database/datamanager.h"
 #include "database/usermanager.h"
+#include "database/devicemanager.h"
 
 int main(int argc, char *argv[])
 {
@@ -13,6 +14,7 @@ int main(int argc, char *argv[])
     dbManager.init();
 
     UserManager::instance();
+    DeviceManager::instance();
 
     MainWindow w;
     w.show();

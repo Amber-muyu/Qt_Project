@@ -1,4 +1,4 @@
-QT       += core gui sql
+QT       += core gui sql charts
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -16,11 +16,18 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    src/add/admindeviceinfoadd.cpp \
+    src/controller/deviceadmincontroller.cpp \
+    src/add/adminuserinfoadd.cpp \
     src/base/baseframe.cpp \
     src/controller/admincontroller.cpp \
+    src/controller/deviceusercontroller.cpp \
     src/controller/usercontroller.cpp \
     src/database/datamanager.cpp \
+    src/database/devicemanager.cpp \
     src/database/usermanager.cpp \
+    src/modify/admindeviceinfomodify.cpp \
+    src/modify/adminuserinfomodify.cpp \
     src/modify/passwordmodify.cpp \
     src/modify/usermodify.cpp \
     src/ui/homewindow.cpp \
@@ -33,11 +40,18 @@ SOURCES += \
     src/ui/titlebar.cpp
 
 HEADERS += \
+    src/add/admindeviceinfoadd.h \
+    src/controller/deviceadmincontroller.h \
+    src/add/adminuserinfoadd.h \
     src/base/baseframe.h \
     src/controller/admincontroller.h \
+    src/controller/deviceusercontroller.h \
     src/controller/usercontroller.h \
     src/database/datamanager.h \
+    src/database/devicemanager.h \
     src/database/usermanager.h \
+    src/modify/admindeviceinfomodify.h \
+    src/modify/adminuserinfomodify.h \
     src/modify/passwordmodify.h \
     src/modify/usermodify.h \
     src/ui/homewindow.h \
@@ -50,8 +64,14 @@ HEADERS += \
     src/utils/utils.h \
 
 FORMS += \
+    src/add/admindeviceinfoadd.ui \
+    src/controller/deviceadmincontroller.ui \
+    src/add/adminuserinfoadd.ui \
     src/controller/admincontroller.ui \
+    src/controller/deviceusercontroller.ui \
     src/controller/usercontroller.ui \
+    src/modify/admindeviceinfomodify.ui \
+    src/modify/adminuserinfomodify.ui \
     src/modify/passwordmodify.ui \
     src/modify/usermodify.ui \
     src/ui/homewindow.ui \
