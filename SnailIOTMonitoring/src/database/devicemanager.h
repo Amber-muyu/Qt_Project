@@ -8,7 +8,7 @@
 #include <QSqlQuery>
 #include <QSqlRecord>
 #include <QSqlError>
-#include "datamanager.h"
+#include "databasemanager.h"
 
 class DeviceManager : public QObject
 {

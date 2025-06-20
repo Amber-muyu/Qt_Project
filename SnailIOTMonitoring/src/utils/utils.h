@@ -10,5 +10,7 @@
 #define PAGE_USERINFO_ADMIN 2
 #define PAGE_DEVICE_USER 3
 #define PAGE_DEVICE_ADMIN 4
+#define PAGE_DATA_USER 5
+#define PAGE_DATA_ADMIN 6
 
 #endif // UTILS_H

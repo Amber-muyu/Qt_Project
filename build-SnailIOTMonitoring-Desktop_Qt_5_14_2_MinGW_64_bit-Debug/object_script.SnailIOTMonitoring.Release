@@ -1,10 +1,13 @@
 release/admindeviceinfoadd.o
+release/dataadmincontroller.o
+release/datausercontroller.o
 release/deviceadmincontroller.o
 release/adminuserinfoadd.o
 release/baseframe.o
 release/admincontroller.o
 release/deviceusercontroller.o
 release/usercontroller.o
+release/databasemanager.o
 release/datamanager.o
 release/devicemanager.o
 release/usermanager.o
@@ -12,6 +15,7 @@ release/admindeviceinfomodify.o
 release/adminuserinfomodify.o
 release/passwordmodify.o
 release/usermodify.o
+release/serialport.o
 release/homewindow.o
 release/loginwindow.o
 release/main.o
@@ -22,12 +26,15 @@ release/statusbar.o
 release/titlebar.o
 release/qrc_Resources.o
 release/moc_admindeviceinfoadd.o
+release/moc_dataadmincontroller.o
+release/moc_datausercontroller.o
 release/moc_deviceadmincontroller.o
 release/moc_adminuserinfoadd.o
 release/moc_baseframe.o
 release/moc_admincontroller.o
 release/moc_deviceusercontroller.o
 release/moc_usercontroller.o
+release/moc_databasemanager.o
 release/moc_datamanager.o
 release/moc_devicemanager.o
 release/moc_usermanager.o
@@ -35,6 +42,7 @@ release/moc_admindeviceinfomodify.o
 release/moc_adminuserinfomodify.o
 release/moc_passwordmodify.o
 release/moc_usermodify.o
+release/moc_serialport.o
 release/moc_homewindow.o
 release/moc_loginwindow.o
 release/moc_mainwindow.o

@@ -5,7 +5,7 @@
 #include <QSqlDatabase>
 #include <QVariantMap>
 #include <QList>
-#include "datamanager.h"
+#include "databasemanager.h"
 
 class UserManager : public QObject
 {
@@ -42,7 +42,7 @@ signals:
     void passwordChanged(const QString &username);
 
 private:
-    DataManager &m_dbManager;
+    DatabaseManager &m_dbManager;
     QSqlDatabase m_db;
     bool validateUserData(const QVariantMap &userData);
 };

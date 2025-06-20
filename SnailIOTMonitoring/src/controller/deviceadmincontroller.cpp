@@ -81,8 +81,8 @@ void DeviceAdminController::addDevice()
     m_adminDeviceInfoAdd->setAttribute(Qt::WA_ShowModal);
 
     connect(m_adminDeviceInfoAdd,&AdminDeviceInfoAdd::addFinish,this,[=](){
-        DeviceManager &userManager = DeviceManager::instance();
-        QList<QVariantMap> devices = userManager.getAllDevices();
+        DeviceManager &deviceManager = DeviceManager::instance();
+        QList<QVariantMap> devices = deviceManager.getAllDevices();
         initDeviceInfoPage(devices);
     });
 

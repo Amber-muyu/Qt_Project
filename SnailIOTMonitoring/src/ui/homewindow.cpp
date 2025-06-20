@@ -11,20 +11,24 @@ HomeWindow::HomeWindow(QWidget *parent) :
     m_adminController = new AdminController;
     m_deviceUserController = new DeviceUserController;
     m_deviceAdmincontroller = new DeviceAdminController;
+    m_dataUserController = new DataUserController;
+    m_dataAdminController = new DataAdminController;
 
     ui->stackedWidget->addWidget(m_userController);
     ui->stackedWidget->addWidget(m_adminController);
     ui->stackedWidget->addWidget(m_deviceUserController);
     ui->stackedWidget->addWidget(m_deviceAdmincontroller);
+    ui->stackedWidget->addWidget(m_dataUserController);
+    ui->stackedWidget->addWidget(m_dataAdminController);
 
     //页面切换
     connect(ui->btnUser,&QPushButton::clicked,this,&HomeWindow::userPage);
     connect(ui->btnDevice,&QPushButton::clicked,this,&HomeWindow::devicePage);
-    connect(ui->btnData,&QPushButton::clicked,this,[=](){ emit changePage(7);});
-    connect(ui->btnAlarm,&QPushButton::clicked,this,[=](){ emit changePage(8);});
-    connect(ui->btnDataAnalysis,&QPushButton::clicked,[=](){ emit changePage(9);});
-    connect(ui->btnSystem,&QPushButton::clicked,this,[=](){ emit changePage(10);});
-    connect(ui->btnLog,&QPushButton::clicked,this,[=](){ emit changePage(11);});
+    connect(ui->btnData,&QPushButton::clicked,this,&HomeWindow::dataPage);
+    connect(ui->btnAlarm,&QPushButton::clicked,this,[=](){ emit changePage(20);});
+    connect(ui->btnDataAnalysis,&QPushButton::clicked,[=](){ emit changePage(30);});
+    connect(ui->btnSystem,&QPushButton::clicked,this,[=](){ emit changePage(40);});
+    connect(ui->btnLog,&QPushButton::clicked,this,[=](){ emit changePage(50);});
 
     //用户管理页面
     connect(this,&HomeWindow::loginUserName,m_userController,&UserController::getLoginUserInfo);
@@ -55,6 +59,17 @@ void HomeWindow::devicePage()
         emit changePage(PAGE_DEVICE_USER);
     }else {
         emit changePage(PAGE_DEVICE_ADMIN);
+    }
+}
+
+void HomeWindow::dataPage()
+{
+    UserManager &userManager = UserManager::instance();
+    QVariantMap user = userManager.getUserByUsername(m_userName);
+    if(user.value("role").toString() == "user"){
+        emit changePage(PAGE_DATA_USER);
+    }else {
+        emit changePage(PAGE_DATA_ADMIN);
     }
 }
 

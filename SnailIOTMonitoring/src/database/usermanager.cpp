@@ -5,7 +5,7 @@
 
 UserManager::UserManager(QObject *parent)
     : QObject(parent)
-    , m_dbManager(DataManager::instance())
+    , m_dbManager(DatabaseManager::instance())
     , m_db(m_dbManager.db())
 {
 }

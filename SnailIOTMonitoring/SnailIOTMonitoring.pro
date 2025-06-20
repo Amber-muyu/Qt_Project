@@ -1,5 +1,5 @@
-QT       += core gui sql charts
-
+QT       += core gui sql charts serialport
+QT       += texttospeech axcontainer
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
@@ -17,12 +17,15 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     src/add/admindeviceinfoadd.cpp \
+    src/controller/dataadmincontroller.cpp \
+    src/controller/datausercontroller.cpp \
     src/controller/deviceadmincontroller.cpp \
     src/add/adminuserinfoadd.cpp \
     src/base/baseframe.cpp \
     src/controller/admincontroller.cpp \
     src/controller/deviceusercontroller.cpp \
     src/controller/usercontroller.cpp \
+    src/database/databasemanager.cpp \
     src/database/datamanager.cpp \
     src/database/devicemanager.cpp \
     src/database/usermanager.cpp \
@@ -30,6 +33,7 @@ SOURCES += \
     src/modify/adminuserinfomodify.cpp \
     src/modify/passwordmodify.cpp \
     src/modify/usermodify.cpp \
+    src/serial/serialport.cpp \
     src/ui/homewindow.cpp \
     src/ui/loginwindow.cpp \
     src/main.cpp \
@@ -41,12 +45,15 @@ SOURCES += \
 
 HEADERS += \
     src/add/admindeviceinfoadd.h \
+    src/controller/dataadmincontroller.h \
+    src/controller/datausercontroller.h \
     src/controller/deviceadmincontroller.h \
     src/add/adminuserinfoadd.h \
     src/base/baseframe.h \
     src/controller/admincontroller.h \
     src/controller/deviceusercontroller.h \
     src/controller/usercontroller.h \
+    src/database/databasemanager.h \
     src/database/datamanager.h \
     src/database/devicemanager.h \
     src/database/usermanager.h \
@@ -54,6 +61,7 @@ HEADERS += \
     src/modify/adminuserinfomodify.h \
     src/modify/passwordmodify.h \
     src/modify/usermodify.h \
+    src/serial/serialport.h \
     src/ui/homewindow.h \
     src/ui/loginwindow.h \
     src/ui/mainwindow.h \
@@ -65,6 +73,8 @@ HEADERS += \
 
 FORMS += \
     src/add/admindeviceinfoadd.ui \
+    src/controller/dataadmincontroller.ui \
+    src/controller/datausercontroller.ui \
     src/controller/deviceadmincontroller.ui \
     src/add/adminuserinfoadd.ui \
     src/controller/admincontroller.ui \
@@ -74,6 +84,7 @@ FORMS += \
     src/modify/adminuserinfomodify.ui \
     src/modify/passwordmodify.ui \
     src/modify/usermodify.ui \
+    src/serial/serialport.ui \
     src/ui/homewindow.ui \
     src/ui/loginwindow.ui \
     src/ui/mainwindow.ui \

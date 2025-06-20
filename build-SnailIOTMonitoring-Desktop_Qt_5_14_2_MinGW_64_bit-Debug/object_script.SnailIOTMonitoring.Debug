@@ -1,10 +1,13 @@
 debug/admindeviceinfoadd.o
+debug/dataadmincontroller.o
+debug/datausercontroller.o
 debug/deviceadmincontroller.o
 debug/adminuserinfoadd.o
 debug/baseframe.o
 debug/admincontroller.o
 debug/deviceusercontroller.o
 debug/usercontroller.o
+debug/databasemanager.o
 debug/datamanager.o
 debug/devicemanager.o
 debug/usermanager.o
@@ -12,6 +15,7 @@ debug/admindeviceinfomodify.o
 debug/adminuserinfomodify.o
 debug/passwordmodify.o
 debug/usermodify.o
+debug/serialport.o
 debug/homewindow.o
 debug/loginwindow.o
 debug/main.o
@@ -22,12 +26,15 @@ debug/statusbar.o
 debug/titlebar.o
 debug/qrc_Resources.o
 debug/moc_admindeviceinfoadd.o
+debug/moc_dataadmincontroller.o
+debug/moc_datausercontroller.o
 debug/moc_deviceadmincontroller.o
 debug/moc_adminuserinfoadd.o
 debug/moc_baseframe.o
 debug/moc_admincontroller.o
 debug/moc_deviceusercontroller.o
 debug/moc_usercontroller.o
+debug/moc_databasemanager.o
 debug/moc_datamanager.o
 debug/moc_devicemanager.o
 debug/moc_usermanager.o
@@ -35,6 +42,7 @@ debug/moc_admindeviceinfomodify.o
 debug/moc_adminuserinfomodify.o
 debug/moc_passwordmodify.o
 debug/moc_usermodify.o
+debug/moc_serialport.o
 debug/moc_homewindow.o
 debug/moc_loginwindow.o
 debug/moc_mainwindow.o
