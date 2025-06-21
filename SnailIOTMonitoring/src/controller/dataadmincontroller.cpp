@@ -27,6 +27,7 @@ DataAdminController::DataAdminController(QWidget *parent) :
     connect(ui->btnSearch,&QPushButton::clicked,this,&DataAdminController::searchData);
     connect(ui->btnReset,&QPushButton::clicked,this,&DataAdminController::resetData);
     connect(ui->btnDataExport,&QPushButton::clicked,this,&DataAdminController::exportData);
+    connect(ui->btnRealShowData,&QPushButton::clicked,this,&DataAdminController::realShowData);
 }
 
 void DataAdminController::initDataInfoPage(const QList<QVariantMap> &data)
@@ -84,6 +85,8 @@ void DataAdminController::addData()
         QList<QVariantMap> devices = deviceManager.getAllData();
         initDataInfoPage(devices);
     });
+
+    connect(m_serialPort, &SerialPort::dataReceived, this, &DataAdminController::onSerialDataReceived);
 
     // 连接窗口关闭信号
     connect(m_serialPort, &SerialPort::aboutToClose, this, [this]() {
@@ -148,24 +151,72 @@ void DataAdminController::resetData()
 
 void DataAdminController::exportData()
 {
-    QList<QVariantMap> allData = DataManager::instance().getAllData();
-
-    if (allData.isEmpty()) {
+    /* 1. 取全部数据 --------------------------------------------------- */
+    QList<QVariantMap> data = DataManager::instance().getAllData();
+    if (data.isEmpty()) {
         QMessageBox::warning(this, "提示", "没有数据可导出！");
         return;
     }
 
+    /* 2. 让用户选择保存路径 ------------------------------------------- */
+    // 初始文件名：Documents/data_export.xlsx
+    QString initPath = QStandardPaths::writableLocation(
+                QStandardPaths::DocumentsLocation)
+            + "/data_export.xlsx";
+
+    QString selectedFilter;
     QString filePath = QFileDialog::getSaveFileName(
-                this, "保存 CSV", "", "CSV 文件 (*.csv)");
+                this,
+                "数据导出",
+                initPath,
+                "Excel 文件 (*.xlsx);;CSV 文件 (*.csv)",
+                &selectedFilter);                        // <<--- 取过滤器
+    if (filePath.isEmpty()) return;
 
-    if (!filePath.isEmpty()) {
-        if (!filePath.endsWith(".csv", Qt::CaseInsensitive))
-            filePath += ".csv";
-
-        if (DataManager::instance().exportToCsv(allData, filePath))
-            QMessageBox::information(this, "导出完成", "所有数据已导出！");
+    /* 3. 若无扩展名 → 根据过滤器自动补齐 ------------------------------- */
+    if (QFileInfo(filePath).suffix().isEmpty()) {
+        if (selectedFilter.startsWith("Excel"))
+            filePath += ".xlsx";
         else
-            QMessageBox::critical(this, "导出失败", "无法写入文件！");
+            filePath += ".csv";
+    }
+
+    /* 4. 根据最终后缀决定导出格式 -------------------------------------- */
+    QString ext = QFileInfo(filePath).suffix().toLower();
+    bool ok = false;
+
+    if (ext == "xlsx") {
+        ok = DataManager::instance().exportToExcel(data, filePath);
+    } else if (ext == "csv") {
+        ok = DataManager::instance().exportToCsv(data, filePath);
+    } else {
+        QMessageBox::critical(this, "错误", "不支持的导出格式: ." + ext);
+        return;
+    }
+
+    /* 5. 结果提示 ------------------------------------------------------ */
+    if (ok)
+        QMessageBox::information(this, "导出成功",
+                                 "数据已导出到:\n" + QDir::toNativeSeparators(filePath));
+    else
+        QMessageBox::critical(this, "导出失败", "写入文件时发生错误！");
+}
+
+void DataAdminController::realShowData()
+{
+    if (!m_realTimeChar) {
+        m_realTimeChar = new RealTimeChart();
+    }
+    m_realTimeChar->show();
+    m_realTimeChar->raise();
+    m_realTimeChar->activateWindow();
+    m_realTimeChar->setWindowTitle("实时数据显示");
+
+}
+
+void DataAdminController::onSerialDataReceived(const QVariantMap &data) {
+    if (m_realTimeChar) {
+        m_realTimeChar->updateCharts(data);
     }
 }
 

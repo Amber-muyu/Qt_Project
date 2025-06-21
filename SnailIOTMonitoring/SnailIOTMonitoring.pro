@@ -1,5 +1,5 @@
 QT       += core gui sql charts serialport
-QT       += texttospeech axcontainer
+QT       += xml
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
@@ -17,6 +17,10 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     src/add/admindeviceinfoadd.cpp \
+    src/add/adminruleadd.cpp \
+    src/chart/realtimechart.cpp \
+    src/controller/alarmadmincontroller.cpp \
+    src/controller/alarmusercontroller.cpp \
     src/controller/dataadmincontroller.cpp \
     src/controller/datausercontroller.cpp \
     src/controller/deviceadmincontroller.cpp \
@@ -25,6 +29,8 @@ SOURCES += \
     src/controller/admincontroller.cpp \
     src/controller/deviceusercontroller.cpp \
     src/controller/usercontroller.cpp \
+    src/database/alarmrecordmanager.cpp \
+    src/database/alarmrulemanager.cpp \
     src/database/databasemanager.cpp \
     src/database/datamanager.cpp \
     src/database/devicemanager.cpp \
@@ -45,6 +51,10 @@ SOURCES += \
 
 HEADERS += \
     src/add/admindeviceinfoadd.h \
+    src/add/adminruleadd.h \
+    src/chart/realtimechart.h \
+    src/controller/alarmadmincontroller.h \
+    src/controller/alarmusercontroller.h \
     src/controller/dataadmincontroller.h \
     src/controller/datausercontroller.h \
     src/controller/deviceadmincontroller.h \
@@ -53,6 +63,8 @@ HEADERS += \
     src/controller/admincontroller.h \
     src/controller/deviceusercontroller.h \
     src/controller/usercontroller.h \
+    src/database/alarmrecordmanager.h \
+    src/database/alarmrulemanager.h \
     src/database/databasemanager.h \
     src/database/datamanager.h \
     src/database/devicemanager.h \
@@ -73,6 +85,10 @@ HEADERS += \
 
 FORMS += \
     src/add/admindeviceinfoadd.ui \
+    src/add/adminruleadd.ui \
+    src/chart/realtimechart.ui \
+    src/controller/alarmadmincontroller.ui \
+    src/controller/alarmusercontroller.ui \
     src/controller/dataadmincontroller.ui \
     src/controller/datausercontroller.ui \
     src/controller/deviceadmincontroller.ui \
@@ -100,3 +116,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     Resources.qrc
+
+QXLSX_ROOT = $$PWD/src/libs/QXlsx
+include($$PWD/src/libs/QXlsx/QXlsx.pri)
+INCLUDEPATH += $$PWD/src/libs/QXlsx

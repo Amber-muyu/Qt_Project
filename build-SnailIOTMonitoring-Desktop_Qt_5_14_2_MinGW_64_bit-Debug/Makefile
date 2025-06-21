@@ -237,6 +237,7 @@ Makefile: ../SnailIOTMonitoring/SnailIOTMonitoring.pro ../../../../Software/Qt5.
 		../../../../Software/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/toolchain.prf \
 		../../../../Software/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/default_pre.prf \
 		../../../../Software/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/win32/default_pre.prf \
+		../SnailIOTMonitoring/src/libs/QXlsx/QXlsx.pri \
 		../../../../Software/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/resolve_config.prf \
 		../../../../Software/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/exclusive_builds_post.prf \
 		../../../../Software/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/default_post.prf \
@@ -249,7 +250,6 @@ Makefile: ../SnailIOTMonitoring/SnailIOTMonitoring.pro ../../../../Software/Qt5.
 		../../../../Software/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/moc.prf \
 		../../../../Software/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/win32/opengl.prf \
 		../../../../Software/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/uic.prf \
-		../../../../Software/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/win32/dumpcpp.prf \
 		../../../../Software/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/qmake_use.prf \
 		../../../../Software/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/file_copies.prf \
 		../../../../Software/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/win32/windows.prf \
@@ -259,13 +259,11 @@ Makefile: ../SnailIOTMonitoring/SnailIOTMonitoring.pro ../../../../Software/Qt5.
 		../../../../Software/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/lex.prf \
 		../SnailIOTMonitoring/SnailIOTMonitoring.pro \
 		../../../../Software/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Charts.prl \
-		../../../../Software/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5AxContainer.prl \
-		../../../../Software/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5AxBase.prl \
 		../../../../Software/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Widgets.prl \
 		../../../../Software/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Gui.prl \
 		../../../../Software/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Sql.prl \
 		../../../../Software/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5SerialPort.prl \
-		../../../../Software/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5TextToSpeech.prl \
+		../../../../Software/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Xml.prl \
 		../../../../Software/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Core.prl \
 		../../../../Software/Qt5.14.2/5.14.2/mingw73_64/lib/qtmain.prl \
 		../../../../Software/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/build_pass.prf \
@@ -438,6 +436,7 @@ Makefile: ../SnailIOTMonitoring/SnailIOTMonitoring.pro ../../../../Software/Qt5.
 ../../../../Software/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/toolchain.prf:
 ../../../../Software/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/default_pre.prf:
 ../../../../Software/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/win32/default_pre.prf:
+../SnailIOTMonitoring/src/libs/QXlsx/QXlsx.pri:
 ../../../../Software/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/resolve_config.prf:
 ../../../../Software/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/exclusive_builds_post.prf:
 ../../../../Software/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/default_post.prf:
@@ -450,7 +449,6 @@ Makefile: ../SnailIOTMonitoring/SnailIOTMonitoring.pro ../../../../Software/Qt5.
 ../../../../Software/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/moc.prf:
 ../../../../Software/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/win32/opengl.prf:
 ../../../../Software/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/uic.prf:
-../../../../Software/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/win32/dumpcpp.prf:
 ../../../../Software/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/qmake_use.prf:
 ../../../../Software/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/file_copies.prf:
 ../../../../Software/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/win32/windows.prf:
@@ -460,13 +458,11 @@ Makefile: ../SnailIOTMonitoring/SnailIOTMonitoring.pro ../../../../Software/Qt5.
 ../../../../Software/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/lex.prf:
 ../SnailIOTMonitoring/SnailIOTMonitoring.pro:
 ../../../../Software/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Charts.prl:
-../../../../Software/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5AxContainer.prl:
-../../../../Software/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5AxBase.prl:
 ../../../../Software/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Widgets.prl:
 ../../../../Software/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Gui.prl:
 ../../../../Software/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Sql.prl:
 ../../../../Software/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5SerialPort.prl:
-../../../../Software/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5TextToSpeech.prl:
+../../../../Software/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Xml.prl:
 ../../../../Software/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Core.prl:
 ../../../../Software/Qt5.14.2/5.14.2/mingw73_64/lib/qtmain.prl:
 ../../../../Software/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/build_pass.prf:

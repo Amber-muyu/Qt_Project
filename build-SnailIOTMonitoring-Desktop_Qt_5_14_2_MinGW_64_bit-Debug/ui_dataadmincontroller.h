@@ -29,12 +29,11 @@ public:
     QLabel *labelTitle;
     QWidget *widget;
     QGridLayout *gridLayout;
-    QPushButton *btnAddData;
-    QSpacerItem *horizontalSpacer;
     QPushButton *btnDeleteData;
-    QPushButton *btnLineChart;
-    QPushButton *btnBarChart;
+    QSpacerItem *horizontalSpacer;
+    QPushButton *btnRealShowData;
     QPushButton *btnDataExport;
+    QPushButton *btnAddData;
     QWidget *widget_2;
     QGridLayout *gridLayout_3;
     QSpacerItem *horizontalSpacer_2;
@@ -68,39 +67,33 @@ public:
         gridLayout->setSpacing(5);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         gridLayout->setContentsMargins(5, 5, 5, 5);
-        btnAddData = new QPushButton(widget);
-        btnAddData->setObjectName(QString::fromUtf8("btnAddData"));
-        btnAddData->setMinimumSize(QSize(0, 30));
-
-        gridLayout->addWidget(btnAddData, 0, 0, 1, 1);
-
-        horizontalSpacer = new QSpacerItem(207, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout->addItem(horizontalSpacer, 0, 7, 1, 1);
-
         btnDeleteData = new QPushButton(widget);
         btnDeleteData->setObjectName(QString::fromUtf8("btnDeleteData"));
         btnDeleteData->setMinimumSize(QSize(0, 30));
 
-        gridLayout->addWidget(btnDeleteData, 0, 3, 1, 1);
+        gridLayout->addWidget(btnDeleteData, 0, 2, 1, 1);
 
-        btnLineChart = new QPushButton(widget);
-        btnLineChart->setObjectName(QString::fromUtf8("btnLineChart"));
-        btnLineChart->setMinimumSize(QSize(0, 30));
+        horizontalSpacer = new QSpacerItem(207, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        gridLayout->addWidget(btnLineChart, 0, 1, 1, 1);
+        gridLayout->addItem(horizontalSpacer, 0, 6, 1, 1);
 
-        btnBarChart = new QPushButton(widget);
-        btnBarChart->setObjectName(QString::fromUtf8("btnBarChart"));
-        btnBarChart->setMinimumSize(QSize(0, 30));
+        btnRealShowData = new QPushButton(widget);
+        btnRealShowData->setObjectName(QString::fromUtf8("btnRealShowData"));
+        btnRealShowData->setMinimumSize(QSize(0, 30));
 
-        gridLayout->addWidget(btnBarChart, 0, 2, 1, 1);
+        gridLayout->addWidget(btnRealShowData, 0, 1, 1, 1);
 
         btnDataExport = new QPushButton(widget);
         btnDataExport->setObjectName(QString::fromUtf8("btnDataExport"));
         btnDataExport->setMinimumSize(QSize(0, 30));
 
-        gridLayout->addWidget(btnDataExport, 0, 4, 1, 1);
+        gridLayout->addWidget(btnDataExport, 0, 3, 1, 1);
+
+        btnAddData = new QPushButton(widget);
+        btnAddData->setObjectName(QString::fromUtf8("btnAddData"));
+        btnAddData->setMinimumSize(QSize(0, 30));
+
+        gridLayout->addWidget(btnAddData, 0, 0, 1, 1);
 
 
         gridLayout_2->addWidget(widget, 1, 0, 1, 1);
@@ -156,11 +149,10 @@ public:
     {
         DataAdminController->setWindowTitle(QCoreApplication::translate("DataAdminController", "Form", nullptr));
         labelTitle->setText(QCoreApplication::translate("DataAdminController", "\346\225\260\346\215\256\344\277\241\346\201\257\347\256\241\347\220\206", nullptr));
-        btnAddData->setText(QCoreApplication::translate("DataAdminController", "\344\270\262\345\217\243\345\267\245\345\205\267", nullptr));
         btnDeleteData->setText(QCoreApplication::translate("DataAdminController", "\345\210\240\351\231\244\346\225\260\346\215\256", nullptr));
-        btnLineChart->setText(QCoreApplication::translate("DataAdminController", "\346\212\230\347\272\277\345\233\276", nullptr));
-        btnBarChart->setText(QCoreApplication::translate("DataAdminController", "\346\237\261\347\212\266\345\233\276", nullptr));
+        btnRealShowData->setText(QCoreApplication::translate("DataAdminController", "\345\256\236\346\227\266\346\225\260\346\215\256\346\230\276\347\244\272", nullptr));
         btnDataExport->setText(QCoreApplication::translate("DataAdminController", "\346\225\260\346\215\256\345\257\274\345\207\272", nullptr));
+        btnAddData->setText(QCoreApplication::translate("DataAdminController", "\344\270\262\345\217\243\345\267\245\345\205\267", nullptr));
         btnSearch->setText(QCoreApplication::translate("DataAdminController", "\346\220\234\347\264\242", nullptr));
         btnReset->setText(QCoreApplication::translate("DataAdminController", "\351\207\215\347\275\256", nullptr));
     } // retranslateUi

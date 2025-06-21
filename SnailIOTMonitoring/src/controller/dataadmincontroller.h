@@ -3,11 +3,12 @@
 
 #include <QWidget>
 #include <QStandardItemModel>
-#include <QTime>
+#include <QTimer>
 #include <QDateTimeEdit>
 #include <QFileDialog>
 #include "../database/datamanager.h"
 #include "../serial/serialport.h"
+#include "../chart/realtimechart.h"
 
 namespace Ui {
 class DataAdminController;
@@ -30,9 +31,12 @@ public slots:
     void searchData();
     void resetData();
     void exportData();
+    void realShowData();
+    void onSerialDataReceived(const QVariantMap &data);
 private:
     Ui::DataAdminController *ui;
     SerialPort* m_serialPort = nullptr;
+    RealTimeChart* m_realTimeChar = nullptr;
     QStandardItemModel* m_model = nullptr;
     bool m_isSearching;
 };

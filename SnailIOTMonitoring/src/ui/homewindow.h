@@ -9,6 +9,8 @@
 #include "../controller/deviceadmincontroller.h"
 #include "../controller/datausercontroller.h"
 #include "../controller/dataadmincontroller.h"
+#include "../controller/alarmusercontroller.h"
+#include "../controller/alarmadmincontroller.h"
 
 namespace Ui {
 class HomeWindow;
@@ -28,6 +30,7 @@ public slots:
     void userPage();
     void devicePage();
     void dataPage();
+    void alarmPage();
 signals:
     void display(int);
     void changePage(int);
@@ -42,6 +45,8 @@ private:
     DeviceAdminController* m_deviceAdmincontroller;
     DataUserController* m_dataUserController;
     DataAdminController* m_dataAdminController;
+    AlarmUserController* m_alarmUserController;
+    AlarmAdminController* m_alarmAdminController;
 };
 
 #endif // HOMEWINDOW_H

@@ -13,6 +13,8 @@ HomeWindow::HomeWindow(QWidget *parent) :
     m_deviceAdmincontroller = new DeviceAdminController;
     m_dataUserController = new DataUserController;
     m_dataAdminController = new DataAdminController;
+    m_alarmUserController = new AlarmUserController;
+    m_alarmAdminController = new AlarmAdminController;
 
     ui->stackedWidget->addWidget(m_userController);
     ui->stackedWidget->addWidget(m_adminController);
@@ -20,12 +22,14 @@ HomeWindow::HomeWindow(QWidget *parent) :
     ui->stackedWidget->addWidget(m_deviceAdmincontroller);
     ui->stackedWidget->addWidget(m_dataUserController);
     ui->stackedWidget->addWidget(m_dataAdminController);
+    ui->stackedWidget->addWidget(m_alarmUserController);
+    ui->stackedWidget->addWidget(m_alarmAdminController);
 
     //页面切换
     connect(ui->btnUser,&QPushButton::clicked,this,&HomeWindow::userPage);
     connect(ui->btnDevice,&QPushButton::clicked,this,&HomeWindow::devicePage);
     connect(ui->btnData,&QPushButton::clicked,this,&HomeWindow::dataPage);
-    connect(ui->btnAlarm,&QPushButton::clicked,this,[=](){ emit changePage(20);});
+    connect(ui->btnAlarm,&QPushButton::clicked,this,&HomeWindow::alarmPage);
     connect(ui->btnDataAnalysis,&QPushButton::clicked,[=](){ emit changePage(30);});
     connect(ui->btnSystem,&QPushButton::clicked,this,[=](){ emit changePage(40);});
     connect(ui->btnLog,&QPushButton::clicked,this,[=](){ emit changePage(50);});
@@ -70,6 +74,17 @@ void HomeWindow::dataPage()
         emit changePage(PAGE_DATA_USER);
     }else {
         emit changePage(PAGE_DATA_ADMIN);
+    }
+}
+
+void HomeWindow::alarmPage()
+{
+    UserManager &userManager = UserManager::instance();
+    QVariantMap user = userManager.getUserByUsername(m_userName);
+    if(user.value("role").toString() == "user"){
+        emit changePage(PAGE_ALARM_USER);
+    }else {
+        emit changePage(PAGE_ALARM_ADMIN);
     }
 }
 

@@ -35,6 +35,7 @@ public slots:
 signals:
     void aboutToClose();
     void addFinish(const QString&);
+    void dataReceived(const QVariantMap &data);
 
 private:
     Ui::SerialPort *ui;

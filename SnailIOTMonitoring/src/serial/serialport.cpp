@@ -134,6 +134,7 @@ void SerialPort::readData(){
         if(dataManager.addData(dataMap)){
             qDebug() << "数据接受成功";
             emit addFinish("接受成功");
+            emit dataReceived(dataMap);
         }else {
             qDebug() << "数据接受失败";
             return;
@@ -146,6 +147,7 @@ void SerialPort::readData(){
                 if(dataManager.addData(dataMap)){
                     qDebug() << "数据接受成功";
                     emit addFinish("接受成功");
+                    emit dataReceived(dataMap);
                 }else {
                     qDebug() << "数据接受失败";
                     return;

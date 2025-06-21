@@ -9,6 +9,10 @@
 #include <QFile>
 #include <QTextStream>
 #include "databasemanager.h"
+#include "../libs/QXlsx/header/xlsxdocument.h"
+#include "../libs/QXlsx/header/xlsxformat.h"
+#include "../libs/QXlsx/header/xlsxcellrange.h"
+#include "../libs/QXlsx/header/xlsxworksheet.h"
 
 class DataManager : public QObject
 {
@@ -33,12 +37,13 @@ public:
     // 校验方法
     bool validateData(const QVariantMap &data,bool isInsert);  // 数据校验
 
+    //数据导出
     bool exportToCsv (const QList<QVariantMap> &data,const QString &filePath);
+    bool exportToExcel(const QList<QVariantMap> &data, const QString &filePath);
 
 private:
     DataManager(const DataManager&) = delete;
     DataManager& operator=(const DataManager&) = delete;
-
     QSqlDatabase m_db;  // 数据库连接
 };
 

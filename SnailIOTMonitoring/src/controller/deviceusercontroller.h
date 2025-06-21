@@ -3,7 +3,7 @@
 
 #include <QWidget>
 #include <QStandardItemModel>
-#include <QTime>
+#include <QTimer>
 #include "../database/devicemanager.h"
 
 namespace Ui {

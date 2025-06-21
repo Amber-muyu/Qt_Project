@@ -1,5 +1,7 @@
 #include "datamanager.h"
 
+using namespace QXlsx;
+
 DataManager::DataManager(QObject *parent) : QObject(parent)
 {
     m_db = QSqlDatabase::database();          // 默认连接
@@ -326,6 +328,7 @@ bool DataManager::exportToCsv(const QList<QVariantMap> &data, const QString &fil
 
     /* 1. 写表头 */
     QStringList headers = {
+        "data_id",
         "device_id",
         "timestamp",
         "temperature",
@@ -354,4 +357,32 @@ bool DataManager::exportToCsv(const QList<QVariantMap> &data, const QString &fil
     }
     file.close();
     return true;
+}
+
+bool DataManager::exportToExcel(const QList<QVariantMap> &data, const QString &filePath)
+{
+    if (data.isEmpty()) return false;
+
+    Document xlsx;
+    QStringList headers = {
+        "data_id", "device_id", "timestamp",
+        "temperature", "humidity", "light", "co2", "pressure"
+    };
+
+    // 写入表头
+    for (int col = 0; col < headers.size(); ++col) {
+        xlsx.write(1, col + 1, headers[col]);
+    }
+
+    // 写入数据内容
+    for (int row = 0; row < data.size(); ++row) {
+        const QVariantMap &rowData = data.at(row);
+        for (int col = 0; col < headers.size(); ++col) {
+            QVariant value = rowData.value(headers[col]);
+            xlsx.write(row + 2, col + 1, value);
+        }
+    }
+
+    // 保存文件
+    return xlsx.saveAs(filePath); // 会自动处理 .xlsx 后缀
 }

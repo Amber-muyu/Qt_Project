@@ -5,6 +5,8 @@
 #include "database/usermanager.h"
 #include "database/devicemanager.h"
 #include "database/datamanager.h"
+#include "database/alarmrecordmanager.h"
+#include "database/alarmrulemanager.h"
 
 int main(int argc, char *argv[])
 {
@@ -17,6 +19,8 @@ int main(int argc, char *argv[])
     UserManager::instance();
     DeviceManager::instance();
     DataManager::instance();
+    AlarmRecordManager::instance();
+    AlarmRuleManager::instance();
 
     MainWindow w;
     w.show();
