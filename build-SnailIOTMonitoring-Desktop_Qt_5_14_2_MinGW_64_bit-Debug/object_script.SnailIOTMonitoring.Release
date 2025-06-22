@@ -18,6 +18,7 @@ release/datamanager.o
 release/devicemanager.o
 release/usermanager.o
 release/admindeviceinfomodify.o
+release/adminrulemodify.o
 release/adminuserinfomodify.o
 release/passwordmodify.o
 release/usermodify.o
@@ -84,6 +85,7 @@ release/moc_datamanager.o
 release/moc_devicemanager.o
 release/moc_usermanager.o
 release/moc_admindeviceinfomodify.o
+release/moc_adminrulemodify.o
 release/moc_adminuserinfomodify.o
 release/moc_passwordmodify.o
 release/moc_usermodify.o

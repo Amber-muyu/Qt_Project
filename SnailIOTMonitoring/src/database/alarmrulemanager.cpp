@@ -17,8 +17,11 @@ AlarmRuleManager& AlarmRuleManager::instance()
 
 bool AlarmRuleManager::addRule(const QVariantMap &ruleData)
 {
-    if (!validateRuleData(ruleData, true))
+    if (!validateRuleData(ruleData, true)){
+        qDebug() << "插入的数据有误";
         return false;
+    }
+
 
     QSqlQuery query(m_db);
     query.prepare(R"(
@@ -29,7 +32,13 @@ bool AlarmRuleManager::addRule(const QVariantMap &ruleData)
     query.bindValue(":description", ruleData.value("description"));
     query.bindValue(":condition", ruleData.value("condition"));
     query.bindValue(":action", ruleData.value("action"));
-    return query.exec();
+
+    if (!query.exec()) {
+        qCritical() << "Add rule failed:" << query.lastError().text();
+        return false;
+    }
+
+    return true;
 }
 
 bool AlarmRuleManager::updateRuleById(int ruleId, const QVariantMap &updateData)

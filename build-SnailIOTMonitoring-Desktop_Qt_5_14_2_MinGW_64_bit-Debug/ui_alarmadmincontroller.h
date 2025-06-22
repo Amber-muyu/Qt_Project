@@ -41,7 +41,7 @@ public:
     QLabel *labelSearch;
     QSpacerItem *horizontalSpacer_2;
     QLineEdit *lineEditSelectRecord;
-    QPushButton *btnDeleteRecord_2;
+    QPushButton *btnHandleRecord;
     QTableView *tableViewRecord;
 
     void setupUi(QWidget *AlarmAdminController)
@@ -142,11 +142,11 @@ public:
 
         gridLayout_2->addWidget(lineEditSelectRecord, 0, 1, 1, 1);
 
-        btnDeleteRecord_2 = new QPushButton(widget_2);
-        btnDeleteRecord_2->setObjectName(QString::fromUtf8("btnDeleteRecord_2"));
-        btnDeleteRecord_2->setMinimumSize(QSize(0, 30));
+        btnHandleRecord = new QPushButton(widget_2);
+        btnHandleRecord->setObjectName(QString::fromUtf8("btnHandleRecord"));
+        btnHandleRecord->setMinimumSize(QSize(0, 30));
 
-        gridLayout_2->addWidget(btnDeleteRecord_2, 0, 3, 1, 1);
+        gridLayout_2->addWidget(btnHandleRecord, 0, 3, 1, 1);
 
 
         gridLayout_3->addWidget(widget_2, 4, 0, 1, 1);
@@ -172,7 +172,7 @@ public:
         labelTitle_2->setText(QCoreApplication::translate("AlarmAdminController", "\350\255\246\345\221\212\344\277\241\346\201\257\347\256\241\347\220\206", nullptr));
         btnDeleteRecord->setText(QCoreApplication::translate("AlarmAdminController", "\345\210\240\351\231\244\350\256\260\345\275\225", nullptr));
         labelSearch->setText(QCoreApplication::translate("AlarmAdminController", "\346\220\234\347\264\242", nullptr));
-        btnDeleteRecord_2->setText(QCoreApplication::translate("AlarmAdminController", "\346\266\210\346\201\257\351\200\232\347\237\245", nullptr));
+        btnHandleRecord->setText(QCoreApplication::translate("AlarmAdminController", "\346\266\210\346\201\257\351\200\232\347\237\245", nullptr));
     } // retranslateUi
 
 };

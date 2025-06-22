@@ -3,6 +3,7 @@
 #include <QVariant>
 #include <QDebug>
 #include <QSqlRecord>
+#include <QDateTime>
 
 AlarmRecordManager::AlarmRecordManager(QObject *parent) : QObject(parent)
 {
@@ -167,4 +168,53 @@ bool AlarmRecordManager::validateRecordData(const QVariantMap &recordData, bool 
         }
     }
     return true;
+}
+
+QList<QVariantMap> AlarmRecordManager::searchRecords(const QString &keyword)
+{
+    QList<QVariantMap> records;
+
+    QSqlQuery query(m_db);
+    query.prepare(R"(
+        SELECT alarm_id, device_id, timestamp, content, status, note
+        FROM alarm_records
+        WHERE
+            content LIKE :kw OR
+            note LIKE :kw OR
+            status LIKE :kw OR
+            CAST(device_id AS TEXT) LIKE :kw OR
+            strftime('%Y-%m-%d %H:%M', timestamp) LIKE :kw
+        ORDER BY timestamp DESC
+    )");
+
+    query.bindValue(":kw", "%" + keyword + "%");
+
+    if (!query.exec()) {
+        qWarning() << "Alarm record search failed:" << query.lastError().text();
+        qDebug() << "SQL:" << query.lastQuery();
+        qDebug() << "Bound value:" << query.boundValue(":kw");
+        return records;
+    }
+
+    while (query.next()) {
+        QVariantMap record;
+        QSqlRecord sqlRecord = query.record();
+
+        for (int i = 0; i < sqlRecord.count(); ++i) {
+            QString fieldName = sqlRecord.fieldName(i);
+            QVariant value = query.value(i);
+
+            // 特殊处理时间戳格式
+            if (fieldName == "timestamp" && value.type() == QVariant::String) {
+                QDateTime dt = QDateTime::fromString(value.toString(), Qt::ISODate);
+                if (dt.isValid()) {
+                    value = dt.toString("yyyy-MM-dd HH:mm:ss");
+                }
+            }
+            record[fieldName] = value;
+        }
+        records.append(record);
+    }
+
+    return records;
 }

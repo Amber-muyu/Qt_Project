@@ -127,7 +127,18 @@ void SerialPort::readData(){
         qDebug() << "json解析失败";
         return;
     }
+
     DataManager &dataManager = DataManager::instance();
+    AlarmRuleManager &ruleManager = AlarmRuleManager::instance();
+
+    // 获取所有告警规则
+    QList<QVariantMap> rules = ruleManager.getAllRules();
+    if (rules.isEmpty()) {
+        qDebug() << "没有可用的告警规则";
+    }
+    // 创建JS引擎用于条件评估
+    QJSEngine jsEngine;
+
     // 判断是对象还是数组
     if (jsonDoc.isObject()) {
         QVariantMap dataMap = jsonDoc.object().toVariantMap();
@@ -135,6 +146,10 @@ void SerialPort::readData(){
             qDebug() << "数据接受成功";
             emit addFinish("接受成功");
             emit dataReceived(dataMap);
+
+            // 检查告警规则
+            checkAlarmRules(dataMap, rules, jsEngine);
+
         }else {
             qDebug() << "数据接受失败";
             return;
@@ -148,6 +163,9 @@ void SerialPort::readData(){
                     qDebug() << "数据接受成功";
                     emit addFinish("接受成功");
                     emit dataReceived(dataMap);
+
+                    // 检查警告规则
+                    checkAlarmRules(dataMap, rules, jsEngine);
                 }else {
                     qDebug() << "数据接受失败";
                     return;
@@ -155,7 +173,85 @@ void SerialPort::readData(){
             }
         }
     }
+}
 
+// 检查数据是否触发告警规则
+void SerialPort::checkAlarmRules(const QVariantMap &dataMap,const QList<QVariantMap> &rules,QJSEngine &jsEngine)
+{
+    AlarmRecordManager &recordManager = AlarmRecordManager::instance();
+
+    // 获取设备ID（假设数据中有device_id字段）
+    int deviceId = dataMap.value("device_id", -1).toInt();
+    if (deviceId <= 0) {
+        qDebug() << "无效的设备ID，无法检查告警规则";
+        return;
+    }
+
+    // 将数据字段注入JS引擎
+    QJSValue jsData = jsEngine.newObject();
+    for (auto it = dataMap.constBegin(); it != dataMap.constEnd(); ++it) {
+        // 将QVariant转换为JS值
+        QVariant value = it.value();
+        if (value.type() == QVariant::Double || value.type() == QVariant::Int) {
+            jsData.setProperty(it.key(), value.toDouble());
+        } else if (value.type() == QVariant::String) {
+            jsData.setProperty(it.key(), value.toString());
+        } else if (value.type() == QVariant::Bool) {
+            jsData.setProperty(it.key(), value.toBool());
+        } else {
+            jsData.setProperty(it.key(), value.toString());
+        }
+    }
+
+    // 将数据对象设置为全局变量
+    jsEngine.globalObject().setProperty("data", jsData);
+
+    // 遍历所有规则
+    for (const QVariantMap &rule : rules) {
+        // 检查规则是否适用于当前设备
+        int ruleDeviceId = rule.value("device_id", -1).toInt();
+        if (ruleDeviceId != deviceId) {
+            continue;
+        }
+
+        QString condition = rule.value("condition").toString();
+        if (condition.isEmpty()) {
+            continue;
+        }
+
+        try {
+            // 评估条件表达式 - 现在通过 data.temperature 访问
+            QJSValue result = jsEngine.evaluate(condition);
+
+            if (result.isError()) {
+                qWarning() << "规则条件评估错误:" << result.toString()
+                           << "规则ID:" << rule.value("rule_id").toInt()
+                           << "条件:" << condition;
+                continue;
+            }
+
+            if (result.toBool()) {
+                // 触发告警，创建告警记录
+                QVariantMap alarmRecord;
+                alarmRecord["device_id"] = deviceId;
+                alarmRecord["timestamp"] = QDateTime::currentDateTime().toString("yyyy-MM-dd HH:mm:ss");
+                alarmRecord["content"] = rule.value("description").toString() +
+                        " - 触发值: " + QString::number(dataMap.value("temperature").toDouble());
+                alarmRecord["status"] = "UNHANDLED";
+                alarmRecord["note"] = "";
+
+                // 添加告警记录
+                if (recordManager.addRecord(alarmRecord)) {
+                    qDebug() << "告警触发:" << alarmRecord["content"].toString();
+                    emit alarmTriggered(alarmRecord);
+                } else {
+                    qWarning() << "告警记录添加失败";
+                }
+            }
+        } catch (...) {
+            qWarning() << "规则条件执行异常:" << condition;
+        }
+    }
 }
 
 void SerialPort::sendData()

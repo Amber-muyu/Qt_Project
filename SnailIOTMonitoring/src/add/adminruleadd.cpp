@@ -23,8 +23,8 @@ void AdminRuleAdd::addRuleInfo()
 {
     AlarmRuleManager &ruleManager = AlarmRuleManager::instance();
     QVariantMap newRule;
-    newRule["device_id"] = ui->lineEditAddID->text();
-    newRule["descrption"] = ui->lineEditAddDescription->text();
+    newRule["device_id"] = ui->lineEditAddID->text().toInt();
+    newRule["description"] = ui->lineEditAddDescription->text();
     newRule["condition"] = ui->lineEditAddCondition->text();
     newRule["action"] = ui->lineEditAddAction->text();
 

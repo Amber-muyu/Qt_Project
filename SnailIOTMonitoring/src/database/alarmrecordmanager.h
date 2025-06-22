@@ -5,6 +5,7 @@
 #include <QSqlDatabase>
 #include <QVariantMap>
 #include <QList>
+#include <QSqlError>
 
 class AlarmRecordManager : public QObject
 {
@@ -22,7 +23,7 @@ public:
     QList<QVariantMap> getAllRecords();
     QList<QVariantMap> getRecordsByDeviceId(int deviceId);
     QList<QVariantMap> getRecordsByStatus(const QString& status);
-
+    QList<QVariantMap> searchRecords(const QString &keyword);
     // 校验
     bool validateRecordData(const QVariantMap &recordData, bool isInsert = true);
 

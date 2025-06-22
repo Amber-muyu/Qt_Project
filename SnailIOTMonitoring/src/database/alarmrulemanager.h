@@ -5,6 +5,7 @@
 #include <QSqlDatabase>
 #include <QVariantMap>
 #include <QList>
+#include <QSqlError>
 
 class AlarmRuleManager : public QObject
 {

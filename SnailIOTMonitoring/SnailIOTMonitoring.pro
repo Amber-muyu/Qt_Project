@@ -1,5 +1,5 @@
 QT       += core gui sql charts serialport
-QT       += xml
+QT       += xml qml
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
@@ -36,6 +36,7 @@ SOURCES += \
     src/database/devicemanager.cpp \
     src/database/usermanager.cpp \
     src/modify/admindeviceinfomodify.cpp \
+    src/modify/adminrulemodify.cpp \
     src/modify/adminuserinfomodify.cpp \
     src/modify/passwordmodify.cpp \
     src/modify/usermodify.cpp \
@@ -70,6 +71,7 @@ HEADERS += \
     src/database/devicemanager.h \
     src/database/usermanager.h \
     src/modify/admindeviceinfomodify.h \
+    src/modify/adminrulemodify.h \
     src/modify/adminuserinfomodify.h \
     src/modify/passwordmodify.h \
     src/modify/usermodify.h \
@@ -97,6 +99,7 @@ FORMS += \
     src/controller/deviceusercontroller.ui \
     src/controller/usercontroller.ui \
     src/modify/admindeviceinfomodify.ui \
+    src/modify/adminrulemodify.ui \
     src/modify/adminuserinfomodify.ui \
     src/modify/passwordmodify.ui \
     src/modify/usermodify.ui \

@@ -264,6 +264,8 @@ Makefile: ../SnailIOTMonitoring/SnailIOTMonitoring.pro ../../../../Software/Qt5.
 		../../../../Software/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Sql.prl \
 		../../../../Software/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5SerialPort.prl \
 		../../../../Software/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Xml.prl \
+		../../../../Software/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Qml.prl \
+		../../../../Software/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Network.prl \
 		../../../../Software/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Core.prl \
 		../../../../Software/Qt5.14.2/5.14.2/mingw73_64/lib/qtmain.prl \
 		../../../../Software/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/build_pass.prf \
@@ -463,6 +465,8 @@ Makefile: ../SnailIOTMonitoring/SnailIOTMonitoring.pro ../../../../Software/Qt5.
 ../../../../Software/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Sql.prl:
 ../../../../Software/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5SerialPort.prl:
 ../../../../Software/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Xml.prl:
+../../../../Software/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Qml.prl:
+../../../../Software/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Network.prl:
 ../../../../Software/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Core.prl:
 ../../../../Software/Qt5.14.2/5.14.2/mingw73_64/lib/qtmain.prl:
 ../../../../Software/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/build_pass.prf:

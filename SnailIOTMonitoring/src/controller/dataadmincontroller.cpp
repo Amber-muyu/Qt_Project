@@ -211,7 +211,6 @@ void DataAdminController::realShowData()
     m_realTimeChar->raise();
     m_realTimeChar->activateWindow();
     m_realTimeChar->setWindowTitle("实时数据显示");
-
 }
 
 void DataAdminController::onSerialDataReceived(const QVariantMap &data) {

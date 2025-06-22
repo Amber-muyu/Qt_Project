@@ -8,6 +8,9 @@
 #include <QStringList>
 #include <QCloseEvent>
 #include "../database/datamanager.h"
+#include "../database/alarmrecordmanager.h"
+#include "../database/alarmrulemanager.h"
+#include <QJSEngine>
 
 namespace Ui {
 class SerialPort;
@@ -36,6 +39,10 @@ signals:
     void aboutToClose();
     void addFinish(const QString&);
     void dataReceived(const QVariantMap &data);
+    void alarmTriggered(const QVariantMap &alarmRecord);
+
+private:
+    void checkAlarmRules(const QVariantMap &dataMap,const QList<QVariantMap> &rules,QJSEngine &jsEngine);
 
 private:
     Ui::SerialPort *ui;
