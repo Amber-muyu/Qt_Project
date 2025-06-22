@@ -104,9 +104,7 @@ void RealTimeChart::initBarChart()
     m_barView->setRenderHint(QPainter::Antialiasing);
 }
 
-//---------------------------------------------
-//   接收串口 QVariantMap 数据 → 更新图表
-//---------------------------------------------
+//接收串口 QVariantMap 数据 → 更新图表
 void RealTimeChart::updateCharts(const QVariantMap &data)
 {
     // 解析时间

@@ -169,7 +169,7 @@ public:
         btnAddRule->setText(QCoreApplication::translate("AlarmAdminController", "\346\226\260\345\242\236\350\247\204\345\210\231", nullptr));
         btnDeleteRule->setText(QCoreApplication::translate("AlarmAdminController", "\345\210\240\351\231\244\350\247\204\345\210\231", nullptr));
         btnModifyRule->setText(QCoreApplication::translate("AlarmAdminController", "\347\274\226\350\276\221\350\247\204\345\210\231", nullptr));
-        labelTitle_2->setText(QCoreApplication::translate("AlarmAdminController", "\350\255\246\345\221\212\344\277\241\346\201\257\347\256\241\347\220\206", nullptr));
+        labelTitle_2->setText(QCoreApplication::translate("AlarmAdminController", "\350\255\246\345\221\212\350\256\260\345\275\225\347\256\241\347\220\206", nullptr));
         btnDeleteRecord->setText(QCoreApplication::translate("AlarmAdminController", "\345\210\240\351\231\244\350\256\260\345\275\225", nullptr));
         labelSearch->setText(QCoreApplication::translate("AlarmAdminController", "\346\220\234\347\264\242", nullptr));
         btnHandleRecord->setText(QCoreApplication::translate("AlarmAdminController", "\346\266\210\346\201\257\351\200\232\347\237\245", nullptr));

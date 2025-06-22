@@ -1,6 +1,7 @@
 debug/admindeviceinfoadd.o
 debug/adminruleadd.o
 debug/realtimechart.o
+debug/admindataanalysiscontroller.o
 debug/alarmadmincontroller.o
 debug/alarmusercontroller.o
 debug/dataadmincontroller.o
@@ -11,6 +12,7 @@ debug/baseframe.o
 debug/admincontroller.o
 debug/deviceusercontroller.o
 debug/usercontroller.o
+debug/userdataanalysiscontroller.o
 debug/alarmrecordmanager.o
 debug/alarmrulemanager.o
 debug/databasemanager.o
@@ -68,6 +70,7 @@ debug/qrc_Resources.o
 debug/moc_admindeviceinfoadd.o
 debug/moc_adminruleadd.o
 debug/moc_realtimechart.o
+debug/moc_admindataanalysiscontroller.o
 debug/moc_alarmadmincontroller.o
 debug/moc_alarmusercontroller.o
 debug/moc_dataadmincontroller.o
@@ -78,6 +81,7 @@ debug/moc_baseframe.o
 debug/moc_admincontroller.o
 debug/moc_deviceusercontroller.o
 debug/moc_usercontroller.o
+debug/moc_userdataanalysiscontroller.o
 debug/moc_alarmrecordmanager.o
 debug/moc_alarmrulemanager.o
 debug/moc_databasemanager.o

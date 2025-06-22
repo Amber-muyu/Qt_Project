@@ -19,6 +19,7 @@ SOURCES += \
     src/add/admindeviceinfoadd.cpp \
     src/add/adminruleadd.cpp \
     src/chart/realtimechart.cpp \
+    src/controller/admindataanalysiscontroller.cpp \
     src/controller/alarmadmincontroller.cpp \
     src/controller/alarmusercontroller.cpp \
     src/controller/dataadmincontroller.cpp \
@@ -29,6 +30,7 @@ SOURCES += \
     src/controller/admincontroller.cpp \
     src/controller/deviceusercontroller.cpp \
     src/controller/usercontroller.cpp \
+    src/controller/userdataanalysiscontroller.cpp \
     src/database/alarmrecordmanager.cpp \
     src/database/alarmrulemanager.cpp \
     src/database/databasemanager.cpp \
@@ -54,6 +56,7 @@ HEADERS += \
     src/add/admindeviceinfoadd.h \
     src/add/adminruleadd.h \
     src/chart/realtimechart.h \
+    src/controller/admindataanalysiscontroller.h \
     src/controller/alarmadmincontroller.h \
     src/controller/alarmusercontroller.h \
     src/controller/dataadmincontroller.h \
@@ -64,6 +67,7 @@ HEADERS += \
     src/controller/admincontroller.h \
     src/controller/deviceusercontroller.h \
     src/controller/usercontroller.h \
+    src/controller/userdataanalysiscontroller.h \
     src/database/alarmrecordmanager.h \
     src/database/alarmrulemanager.h \
     src/database/databasemanager.h \
@@ -89,6 +93,7 @@ FORMS += \
     src/add/admindeviceinfoadd.ui \
     src/add/adminruleadd.ui \
     src/chart/realtimechart.ui \
+    src/controller/admindataanalysiscontroller.ui \
     src/controller/alarmadmincontroller.ui \
     src/controller/alarmusercontroller.ui \
     src/controller/dataadmincontroller.ui \
@@ -98,6 +103,7 @@ FORMS += \
     src/controller/admincontroller.ui \
     src/controller/deviceusercontroller.ui \
     src/controller/usercontroller.ui \
+    src/controller/userdataanalysiscontroller.ui \
     src/modify/admindeviceinfomodify.ui \
     src/modify/adminrulemodify.ui \
     src/modify/adminuserinfomodify.ui \

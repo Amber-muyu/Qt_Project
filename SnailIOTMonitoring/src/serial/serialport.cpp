@@ -236,7 +236,7 @@ void SerialPort::checkAlarmRules(const QVariantMap &dataMap,const QList<QVariant
                 alarmRecord["device_id"] = deviceId;
                 alarmRecord["timestamp"] = QDateTime::currentDateTime().toString("yyyy-MM-dd HH:mm:ss");
                 alarmRecord["content"] = rule.value("description").toString() +
-                        " - 触发值: " + QString::number(dataMap.value("temperature").toDouble());
+                        " -- 触发值: " + QString::number(dataMap.value("temperature").toDouble());
                 alarmRecord["status"] = "UNHANDLED";
                 alarmRecord["note"] = "";
 

@@ -26,7 +26,6 @@ class Ui_AdminController
 {
 public:
     QGridLayout *gridLayout_2;
-    QLabel *labelTitle;
     QWidget *widget;
     QGridLayout *gridLayout;
     QLineEdit *lineEditSelectUser;
@@ -36,6 +35,7 @@ public:
     QPushButton *btnDeleteUser;
     QLabel *labelSearch;
     QTableView *tableView;
+    QLabel *labelTitle;
 
     void setupUi(QWidget *AdminController)
     {
@@ -46,17 +46,6 @@ public:
         gridLayout_2->setSpacing(5);
         gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
         gridLayout_2->setContentsMargins(5, 5, 5, 5);
-        labelTitle = new QLabel(AdminController);
-        labelTitle->setObjectName(QString::fromUtf8("labelTitle"));
-        QFont font;
-        font.setFamily(QString::fromUtf8("Adobe Arabic"));
-        font.setPointSize(14);
-        font.setBold(true);
-        font.setWeight(75);
-        labelTitle->setFont(font);
-
-        gridLayout_2->addWidget(labelTitle, 0, 0, 1, 1);
-
         widget = new QWidget(AdminController);
         widget->setObjectName(QString::fromUtf8("widget"));
         gridLayout = new QGridLayout(widget);
@@ -66,12 +55,12 @@ public:
         lineEditSelectUser = new QLineEdit(widget);
         lineEditSelectUser->setObjectName(QString::fromUtf8("lineEditSelectUser"));
         lineEditSelectUser->setMinimumSize(QSize(210, 30));
-        QFont font1;
-        font1.setFamily(QString::fromUtf8("Adobe Arabic"));
-        font1.setPointSize(12);
-        font1.setBold(true);
-        font1.setWeight(75);
-        lineEditSelectUser->setFont(font1);
+        QFont font;
+        font.setFamily(QString::fromUtf8("Adobe Arabic"));
+        font.setPointSize(12);
+        font.setBold(true);
+        font.setWeight(75);
+        lineEditSelectUser->setFont(font);
 
         gridLayout->addWidget(lineEditSelectUser, 0, 1, 1, 1);
 
@@ -100,7 +89,7 @@ public:
         labelSearch = new QLabel(widget);
         labelSearch->setObjectName(QString::fromUtf8("labelSearch"));
         labelSearch->setMinimumSize(QSize(0, 30));
-        labelSearch->setFont(font1);
+        labelSearch->setFont(font);
         labelSearch->setAlignment(Qt::AlignCenter);
 
         gridLayout->addWidget(labelSearch, 0, 0, 1, 1);
@@ -113,6 +102,17 @@ public:
 
         gridLayout_2->addWidget(tableView, 2, 0, 1, 2);
 
+        labelTitle = new QLabel(AdminController);
+        labelTitle->setObjectName(QString::fromUtf8("labelTitle"));
+        QFont font1;
+        font1.setFamily(QString::fromUtf8("Adobe Arabic"));
+        font1.setPointSize(14);
+        font1.setBold(true);
+        font1.setWeight(75);
+        labelTitle->setFont(font1);
+
+        gridLayout_2->addWidget(labelTitle, 0, 0, 1, 2);
+
 
         retranslateUi(AdminController);
 
@@ -122,11 +122,11 @@ public:
     void retranslateUi(QWidget *AdminController)
     {
         AdminController->setWindowTitle(QCoreApplication::translate("AdminController", "Form", nullptr));
-        labelTitle->setText(QCoreApplication::translate("AdminController", "\347\224\250\346\210\267\344\277\241\346\201\257\347\256\241\347\220\206", nullptr));
         btnAddUser->setText(QCoreApplication::translate("AdminController", "\346\226\260\345\242\236\347\224\250\346\210\267", nullptr));
         btnModifyUser->setText(QCoreApplication::translate("AdminController", "\344\277\256\346\224\271\347\224\250\346\210\267", nullptr));
         btnDeleteUser->setText(QCoreApplication::translate("AdminController", "\345\210\240\351\231\244\347\224\250\346\210\267", nullptr));
         labelSearch->setText(QCoreApplication::translate("AdminController", "\346\220\234\347\264\242", nullptr));
+        labelTitle->setText(QCoreApplication::translate("AdminController", "\347\224\250\346\210\267\344\277\241\346\201\257\347\256\241\347\220\206", nullptr));
     } // retranslateUi
 
 };

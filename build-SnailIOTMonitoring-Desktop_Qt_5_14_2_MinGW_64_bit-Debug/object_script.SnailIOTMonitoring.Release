@@ -1,6 +1,7 @@
 release/admindeviceinfoadd.o
 release/adminruleadd.o
 release/realtimechart.o
+release/admindataanalysiscontroller.o
 release/alarmadmincontroller.o
 release/alarmusercontroller.o
 release/dataadmincontroller.o
@@ -11,6 +12,7 @@ release/baseframe.o
 release/admincontroller.o
 release/deviceusercontroller.o
 release/usercontroller.o
+release/userdataanalysiscontroller.o
 release/alarmrecordmanager.o
 release/alarmrulemanager.o
 release/databasemanager.o
@@ -68,6 +70,7 @@ release/qrc_Resources.o
 release/moc_admindeviceinfoadd.o
 release/moc_adminruleadd.o
 release/moc_realtimechart.o
+release/moc_admindataanalysiscontroller.o
 release/moc_alarmadmincontroller.o
 release/moc_alarmusercontroller.o
 release/moc_dataadmincontroller.o
@@ -78,6 +81,7 @@ release/moc_baseframe.o
 release/moc_admincontroller.o
 release/moc_deviceusercontroller.o
 release/moc_usercontroller.o
+release/moc_userdataanalysiscontroller.o
 release/moc_alarmrecordmanager.o
 release/moc_alarmrulemanager.o
 release/moc_databasemanager.o
