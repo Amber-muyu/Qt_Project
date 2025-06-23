@@ -13,6 +13,8 @@
 #include "../controller/alarmadmincontroller.h"
 #include "../controller/userdataanalysiscontroller.h"
 #include "../controller/admindataanalysiscontroller.h"
+#include "../controller/systemlogusercontroller.h"
+#include "../controller/systemlogadmincontroller.h"
 
 namespace Ui {
 class HomeWindow;
@@ -34,7 +36,7 @@ public slots:
     void dataPage();
     void alarmPage();
     void dataAnalysisPage();
-
+    void systemLogPage();
 signals:
     void display(int);
     void changePage(int);
@@ -53,6 +55,9 @@ private:
     AlarmAdminController* m_alarmAdminController;
     UserDataAnalysisController* m_userDataAnalysisController;
     AdminDataAnalysisController* m_adminDataAnalysisController;
+    SystemLogUserController* m_systemLogUserController;
+    SystemLogAdminController* m_systemLogAdminController;
+
 };
 
 #endif // HOMEWINDOW_H

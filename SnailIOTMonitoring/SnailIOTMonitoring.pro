@@ -29,6 +29,8 @@ SOURCES += \
     src/base/baseframe.cpp \
     src/controller/admincontroller.cpp \
     src/controller/deviceusercontroller.cpp \
+    src/controller/systemlogadmincontroller.cpp \
+    src/controller/systemlogusercontroller.cpp \
     src/controller/usercontroller.cpp \
     src/controller/userdataanalysiscontroller.cpp \
     src/database/alarmrecordmanager.cpp \
@@ -36,6 +38,7 @@ SOURCES += \
     src/database/databasemanager.cpp \
     src/database/datamanager.cpp \
     src/database/devicemanager.cpp \
+    src/database/systemlogsmanager.cpp \
     src/database/usermanager.cpp \
     src/modify/admindeviceinfomodify.cpp \
     src/modify/adminrulemodify.cpp \
@@ -66,6 +69,8 @@ HEADERS += \
     src/base/baseframe.h \
     src/controller/admincontroller.h \
     src/controller/deviceusercontroller.h \
+    src/controller/systemlogadmincontroller.h \
+    src/controller/systemlogusercontroller.h \
     src/controller/usercontroller.h \
     src/controller/userdataanalysiscontroller.h \
     src/database/alarmrecordmanager.h \
@@ -73,6 +78,7 @@ HEADERS += \
     src/database/databasemanager.h \
     src/database/datamanager.h \
     src/database/devicemanager.h \
+    src/database/systemlogsmanager.h \
     src/database/usermanager.h \
     src/modify/admindeviceinfomodify.h \
     src/modify/adminrulemodify.h \
@@ -102,6 +108,8 @@ FORMS += \
     src/add/adminuserinfoadd.ui \
     src/controller/admincontroller.ui \
     src/controller/deviceusercontroller.ui \
+    src/controller/systemlogadmincontroller.ui \
+    src/controller/systemlogusercontroller.ui \
     src/controller/usercontroller.ui \
     src/controller/userdataanalysiscontroller.ui \
     src/modify/admindeviceinfomodify.ui \

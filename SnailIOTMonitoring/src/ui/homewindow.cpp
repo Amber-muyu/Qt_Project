@@ -17,6 +17,8 @@ HomeWindow::HomeWindow(QWidget *parent) :
     m_alarmAdminController = new AlarmAdminController;
     m_userDataAnalysisController = new UserDataAnalysisController;
     m_adminDataAnalysisController = new AdminDataAnalysisController;
+    m_systemLogUserController = new SystemLogUserController;
+    m_systemLogAdminController = new SystemLogAdminController;
 
     ui->stackedWidget->addWidget(m_userController);
     ui->stackedWidget->addWidget(m_adminController);
@@ -28,6 +30,8 @@ HomeWindow::HomeWindow(QWidget *parent) :
     ui->stackedWidget->addWidget(m_alarmAdminController);
     ui->stackedWidget->addWidget(m_userDataAnalysisController);
     ui->stackedWidget->addWidget(m_adminDataAnalysisController);
+    ui->stackedWidget->addWidget(m_systemLogUserController);
+    ui->stackedWidget->addWidget(m_systemLogAdminController);
 
     //页面切换
     connect(ui->btnUser,&QPushButton::clicked,this,&HomeWindow::userPage);
@@ -35,7 +39,7 @@ HomeWindow::HomeWindow(QWidget *parent) :
     connect(ui->btnData,&QPushButton::clicked,this,&HomeWindow::dataPage);
     connect(ui->btnAlarm,&QPushButton::clicked,this,&HomeWindow::alarmPage);
     connect(ui->btnDataAnalysis,&QPushButton::clicked,this,&HomeWindow::dataAnalysisPage);
-    connect(ui->btnSystem,&QPushButton::clicked,this,[=](){ emit changePage(40);});
+    connect(ui->btnSystem,&QPushButton::clicked,this,&HomeWindow::systemLogPage);
     connect(ui->btnLog,&QPushButton::clicked,this,[=](){ emit changePage(50);});
 
     //用户管理页面
@@ -103,6 +107,16 @@ void HomeWindow::dataAnalysisPage()
     }
 }
 
+void HomeWindow::systemLogPage()
+{
+    UserManager &userManager = UserManager::instance();
+    QVariantMap user = userManager.getUserByUsername(m_userName);
+    if(user.value("role").toString() == "user"){
+        emit changePage(PAGE_SYSTEMLOG_USER);
+    }else {
+        emit changePage(PAGE_SYSTEMLOG_ADMIN);
+    }
+}
 
 void HomeWindow::logoutReturnPage()
 {

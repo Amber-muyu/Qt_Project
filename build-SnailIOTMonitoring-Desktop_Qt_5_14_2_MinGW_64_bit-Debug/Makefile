@@ -232,7 +232,6 @@ Makefile: ../SnailIOTMonitoring/SnailIOTMonitoring.pro ../../../../Software/Qt5.
 		../../../../Software/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/qt_config.prf \
 		../../../../Software/Qt5.14.2/5.14.2/mingw73_64/mkspecs/win32-g++/qmake.conf \
 		../../../../Software/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/spec_post.prf \
-		.qmake.stash \
 		../../../../Software/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/exclusive_builds.prf \
 		../../../../Software/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/toolchain.prf \
 		../../../../Software/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/default_pre.prf \
@@ -268,6 +267,7 @@ Makefile: ../SnailIOTMonitoring/SnailIOTMonitoring.pro ../../../../Software/Qt5.
 		../../../../Software/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Network.prl \
 		../../../../Software/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Core.prl \
 		../../../../Software/Qt5.14.2/5.14.2/mingw73_64/lib/qtmain.prl \
+		.qmake.stash \
 		../../../../Software/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/build_pass.prf \
 		../SnailIOTMonitoring/Resources.qrc
 	$(QMAKE) -o Makefile ..\SnailIOTMonitoring\SnailIOTMonitoring.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
@@ -433,7 +433,6 @@ Makefile: ../SnailIOTMonitoring/SnailIOTMonitoring.pro ../../../../Software/Qt5.
 ../../../../Software/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/qt_config.prf:
 ../../../../Software/Qt5.14.2/5.14.2/mingw73_64/mkspecs/win32-g++/qmake.conf:
 ../../../../Software/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/spec_post.prf:
-.qmake.stash:
 ../../../../Software/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/exclusive_builds.prf:
 ../../../../Software/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/toolchain.prf:
 ../../../../Software/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/default_pre.prf:
@@ -469,6 +468,7 @@ Makefile: ../SnailIOTMonitoring/SnailIOTMonitoring.pro ../../../../Software/Qt5.
 ../../../../Software/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Network.prl:
 ../../../../Software/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Core.prl:
 ../../../../Software/Qt5.14.2/5.14.2/mingw73_64/lib/qtmain.prl:
+.qmake.stash:
 ../../../../Software/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/build_pass.prf:
 ../SnailIOTMonitoring/Resources.qrc:
 qmake: FORCE

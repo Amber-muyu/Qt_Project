@@ -11,6 +11,8 @@ debug/adminuserinfoadd.o
 debug/baseframe.o
 debug/admincontroller.o
 debug/deviceusercontroller.o
+debug/systemlogadmincontroller.o
+debug/systemlogusercontroller.o
 debug/usercontroller.o
 debug/userdataanalysiscontroller.o
 debug/alarmrecordmanager.o
@@ -18,6 +20,7 @@ debug/alarmrulemanager.o
 debug/databasemanager.o
 debug/datamanager.o
 debug/devicemanager.o
+debug/systemlogsmanager.o
 debug/usermanager.o
 debug/admindeviceinfomodify.o
 debug/adminrulemodify.o
@@ -80,6 +83,8 @@ debug/moc_adminuserinfoadd.o
 debug/moc_baseframe.o
 debug/moc_admincontroller.o
 debug/moc_deviceusercontroller.o
+debug/moc_systemlogadmincontroller.o
+debug/moc_systemlogusercontroller.o
 debug/moc_usercontroller.o
 debug/moc_userdataanalysiscontroller.o
 debug/moc_alarmrecordmanager.o
@@ -87,6 +92,7 @@ debug/moc_alarmrulemanager.o
 debug/moc_databasemanager.o
 debug/moc_datamanager.o
 debug/moc_devicemanager.o
+debug/moc_systemlogsmanager.o
 debug/moc_usermanager.o
 debug/moc_admindeviceinfomodify.o
 debug/moc_adminrulemodify.o

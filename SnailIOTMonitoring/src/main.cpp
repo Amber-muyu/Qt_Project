@@ -7,6 +7,7 @@
 #include "database/datamanager.h"
 #include "database/alarmrecordmanager.h"
 #include "database/alarmrulemanager.h"
+#include "database/systemlogsmanager.h"
 
 int main(int argc, char *argv[])
 {
@@ -21,6 +22,7 @@ int main(int argc, char *argv[])
     DataManager::instance();
     AlarmRecordManager::instance();
     AlarmRuleManager::instance();
+    SystemLogsManager::instance();
 
     MainWindow w;
     w.show();
