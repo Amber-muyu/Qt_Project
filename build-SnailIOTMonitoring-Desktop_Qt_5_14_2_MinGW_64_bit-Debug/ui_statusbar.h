@@ -27,7 +27,7 @@ public:
     {
         if (StatusBar->objectName().isEmpty())
             StatusBar->setObjectName(QString::fromUtf8("StatusBar"));
-        StatusBar->resize(800, 600);
+        StatusBar->resize(900, 700);
         gridLayout = new QGridLayout(StatusBar);
         gridLayout->setSpacing(0);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));

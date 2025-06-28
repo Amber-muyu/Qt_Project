@@ -42,6 +42,8 @@ void LoginWindow::turnMainPage()
         emit display(PAGE_HOME);
         emit sendMessage("用户："+username+" 登录成功");
         emit sendUserNameMessage(username);
+        QVariantMap user = userManager.getUserByUsername(username);
+        userManager.setUserId(user.value("user_id").toInt());
     }else {
         ui->lineEditUserName->clear();
         ui->lineEditPassWord->clear();

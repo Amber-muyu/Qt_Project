@@ -55,8 +55,6 @@ bool UserManager::addUser(const QVariantMap &userData)
         return false;
     }
 
-    int userId = query.lastInsertId().toInt();
-    emit userAdded(userId);
     return true;
 }
 
@@ -72,7 +70,6 @@ bool UserManager::authenticate(const QString &username, const QString &password)
     }
 
     if (!query.next()) {
-        emit authenticationFailed(username);
         return false;
     }
 
@@ -80,7 +77,6 @@ bool UserManager::authenticate(const QString &username, const QString &password)
     QString inputHash = hashPassword(password);
 
     if (storedHash != inputHash) {
-        emit authenticationFailed(username);
         return false;
     }
 
@@ -146,7 +142,6 @@ bool UserManager::updateUser(const QString& username, const QVariantMap &updateD
         return false;
     }
 
-    emit userUpdated(username);
     return true;
 }
 
@@ -223,7 +218,6 @@ bool UserManager::deleteUser(int userId)
         return false;
     }
 
-    emit userDeleted(userId);
     return true;
 }
 
@@ -319,7 +313,6 @@ bool UserManager::changePassword(const QString &username, const QString &newPass
         return false;
     }
 
-    emit passwordChanged(username);
     return true;
 }
 
@@ -422,6 +415,19 @@ QString UserManager::getUserRole(int userId)
 QString UserManager::hashPassword(const QString &password)
 {
     return QString(QCryptographicHash::hash(password.toUtf8(), QCryptographicHash::Sha256).toHex());
+}
+
+void UserManager::setUserId(int userId)
+{
+    if (userId <= 0) return;
+    m_userId = userId;
+    qDebug() << "User ID set to:" << m_userId;
+}
+
+void UserManager::clearUserId()
+{
+    m_userId = -1;
+    qDebug() << "User ID cleared";
 }
 
 bool UserManager::validateUserData(const QVariantMap &userData)

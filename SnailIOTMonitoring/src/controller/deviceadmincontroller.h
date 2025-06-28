@@ -5,6 +5,8 @@
 #include <QStandardItemModel>
 #include <QTimer>
 #include "../database/devicemanager.h"
+#include "../database/usermanager.h"
+#include "../database/systemlogsmanager.h"
 #include "../add/admindeviceinfoadd.h"
 #include "../modify/admindeviceinfomodify.h"
 

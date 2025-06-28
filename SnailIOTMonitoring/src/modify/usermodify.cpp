@@ -28,6 +28,7 @@ void UserModify::modifyByUserName(const QString &msg)
 void UserModify::modifyUserInfo()
 {
     UserManager &userManager = UserManager::instance();
+    int currentUserId = userManager.currentUserId();
     QString username = ui->lineEditModifyUserName->text();
 
     QVariantMap oldUser = userManager.getUserByUsername(username);
@@ -45,9 +46,13 @@ void UserModify::modifyUserInfo()
     if(userManager.updateUser(username,update)){
         QMessageBox::information(this,"成功","修改用户信息成功");
         emit modifyFinish(username);
+        SystemLogsManager::log("操作","INFO",
+                               QString("修改用户：%1 信息成功").arg(oldUser["username"].toString()),currentUserId);
         this->close();
     }else {
         QMessageBox::warning(this,"失败","修改用户信息失败");
+        SystemLogsManager::log("操作","WARNING",
+                               QString("修改用户：%1 信息失败").arg(oldUser["username"].toString()),currentUserId);
     }
 }
 

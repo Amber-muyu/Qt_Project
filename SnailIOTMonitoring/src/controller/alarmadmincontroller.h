@@ -8,6 +8,8 @@
 #include <QTimer>
 #include "../database/alarmrecordmanager.h"
 #include "../database/alarmrulemanager.h"
+#include "../database/systemlogsmanager.h"
+#include "../database/usermanager.h"
 
 namespace Ui {
 class AlarmAdminController;

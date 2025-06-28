@@ -34,6 +34,8 @@ public:
     QHBoxLayout *horizontalLayout;
     QSpacerItem *horizontalSpacer;
     QPushButton *btnResetPasswdOK;
+    QSpacerItem *horizontalSpacer_5;
+    QPushButton *btnReturn;
     QSpacerItem *horizontalSpacer_2;
     QLabel *labelResetPasswd;
     QLineEdit *lineEditResetPasswd;
@@ -45,7 +47,7 @@ public:
     {
         if (ResetPasswdWindow->objectName().isEmpty())
             ResetPasswdWindow->setObjectName(QString::fromUtf8("ResetPasswdWindow"));
-        ResetPasswdWindow->resize(800, 600);
+        ResetPasswdWindow->resize(900, 700);
         gridLayout_3 = new QGridLayout(ResetPasswdWindow);
         gridLayout_3->setObjectName(QString::fromUtf8("gridLayout_3"));
         verticalSpacer_3 = new QSpacerItem(20, 131, QSizePolicy::Minimum, QSizePolicy::Expanding);
@@ -88,6 +90,16 @@ public:
         btnResetPasswdOK->setMinimumSize(QSize(100, 50));
 
         horizontalLayout->addWidget(btnResetPasswdOK);
+
+        horizontalSpacer_5 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer_5);
+
+        btnReturn = new QPushButton(ResetPasswdWindow);
+        btnReturn->setObjectName(QString::fromUtf8("btnReturn"));
+        btnReturn->setMinimumSize(QSize(100, 50));
+
+        horizontalLayout->addWidget(btnReturn);
 
         horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
@@ -149,6 +161,7 @@ public:
         ResetPasswdWindow->setWindowTitle(QCoreApplication::translate("ResetPasswdWindow", "Form", nullptr));
         label->setText(QCoreApplication::translate("ResetPasswdWindow", "\346\211\276\345\233\236\345\257\206\347\240\201", nullptr));
         btnResetPasswdOK->setText(QCoreApplication::translate("ResetPasswdWindow", "\347\241\256\350\256\244", nullptr));
+        btnReturn->setText(QCoreApplication::translate("ResetPasswdWindow", "\350\277\224\345\233\236", nullptr));
         labelResetPasswd->setText(QCoreApplication::translate("ResetPasswdWindow", "\350\257\267\350\276\223\345\205\245\344\275\240\347\232\204\351\202\256\347\256\261\346\210\226\350\200\205\346\211\213\346\234\272\345\217\267\357\274\232", nullptr));
     } // retranslateUi
 

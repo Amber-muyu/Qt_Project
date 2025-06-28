@@ -60,9 +60,11 @@ public:
     {
         if (LoginWindow->objectName().isEmpty())
             LoginWindow->setObjectName(QString::fromUtf8("LoginWindow"));
-        LoginWindow->resize(800, 600);
+        LoginWindow->resize(900, 700);
         gridLayout_2 = new QGridLayout(LoginWindow);
+        gridLayout_2->setSpacing(5);
         gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
+        gridLayout_2->setContentsMargins(5, 5, 5, 5);
         verticalSpacer_3 = new QSpacerItem(20, 83, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
         gridLayout_2->addItem(verticalSpacer_3, 0, 1, 1, 1);
@@ -73,6 +75,7 @@ public:
 
         gridLayout = new QGridLayout();
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
+        gridLayout->setHorizontalSpacing(5);
         horizontalLayout_8 = new QHBoxLayout();
         horizontalLayout_8->setObjectName(QString::fromUtf8("horizontalLayout_8"));
         horizontalSpacer_9 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
@@ -81,10 +84,10 @@ public:
 
         label_2 = new QLabel(LoginWindow);
         label_2->setObjectName(QString::fromUtf8("label_2"));
-        label_2->setMinimumSize(QSize(200, 60));
+        label_2->setMinimumSize(QSize(200, 100));
         QFont font;
         font.setFamily(QString::fromUtf8("Adobe Arabic"));
-        font.setPointSize(24);
+        font.setPointSize(28);
         font.setBold(true);
         font.setWeight(75);
         label_2->setFont(font);
@@ -137,7 +140,7 @@ public:
 
         labelLogin = new QLabel(LoginWindow);
         labelLogin->setObjectName(QString::fromUtf8("labelLogin"));
-        labelLogin->setMinimumSize(QSize(121, 121));
+        labelLogin->setMinimumSize(QSize(151, 151));
         labelLogin->setStyleSheet(QString::fromUtf8("border-image: url(:/resources/users.png);"));
 
         horizontalLayout_5->addWidget(labelLogin);

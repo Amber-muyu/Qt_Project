@@ -5,6 +5,7 @@
 #include <QStandardItemModel>
 #include <QTimer>
 #include "../database/usermanager.h"
+#include "../database/systemlogsmanager.h"
 #include "../add/adminuserinfoadd.h"
 #include "../modify/adminuserinfomodify.h"
 

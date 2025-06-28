@@ -14,9 +14,13 @@ SystemLogAdminController::SystemLogAdminController(QWidget *parent) :
     ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
     ui->tableView->setSelectionMode(QAbstractItemView::SingleSelection);
 
+    ui->dateTimeEditFrom->setDate(QDate::currentDate());
+    ui->dateTimeEditFrom->setCalendarPopup(true);
+    ui->dateTimeEditTo->setDate(QDate::currentDate());
+    ui->dateTimeEditTo->setCalendarPopup(true);
+
     SystemLogsManager &logManager = SystemLogsManager::instance();
     QList<QVariantMap> logs = logManager.getAllLogs();
-
     initLogInfoPage(logs);
     autoRefresh();
 
@@ -35,6 +39,8 @@ SystemLogAdminController::SystemLogAdminController(QWidget *parent) :
 
     connect(ui->btnDeleteLog,&QPushButton::clicked,this,&SystemLogAdminController::deleteLog);
     connect(ui->btnExportLog,&QPushButton::clicked,this,&SystemLogAdminController::exportLog);
+    connect(ui->btnSearch,&QPushButton::clicked,this,&SystemLogAdminController::searchLog);
+    connect(ui->btnReset,&QPushButton::clicked,this,&SystemLogAdminController::resetLog);
 }
 
 void SystemLogAdminController::initLogInfoPage(const QList<QVariantMap> &logs)
@@ -154,6 +160,30 @@ void SystemLogAdminController::exportLog()
                                  "数据已导出到:\n" + QDir::toNativeSeparators(filePath));
     else
         QMessageBox::critical(this, "导出失败", "写入文件时发生错误！");
+}
+
+void SystemLogAdminController::searchLog()
+{
+    QString startTime = ui->dateTimeEditFrom->dateTime().toString("yyyy-MM-dd HH:mm:ss");
+    QString endTime = ui->dateTimeEditTo->dateTime().toString("yyyy-MM-dd HH:mm:ss");
+
+    if(startTime>endTime){
+        QMessageBox::warning(this,"警告","结束时间不能大于起始时间");
+        return;
+    }
+    m_isSearching = true;
+
+    QList<QVariantMap> log = SystemLogsManager::instance().getLogByTimeRange(startTime,endTime);
+    initLogInfoPage(log);
+}
+
+void SystemLogAdminController::resetLog()
+{
+    m_isSearching = false;
+    ui->dateTimeEditFrom->setDateTime(QDateTime(QDate::currentDate(),QTime(0,0)));
+    ui->dateTimeEditTo->setDateTime(QDateTime(QDate::currentDate(),QTime(0,0)));
+    QList<QVariantMap> log = SystemLogsManager::instance().getAllLogs();
+    initLogInfoPage(log);
 }
 
 SystemLogAdminController::~SystemLogAdminController()

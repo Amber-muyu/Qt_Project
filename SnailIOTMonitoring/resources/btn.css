@@ -1,0 +1,178 @@
+/* ===================== */
+/* 通用按钮基础样式       */
+/* ===================== */
+QPushButton {
+    background-color: #F5F5F5;
+    color: #424242;
+    border: 1px solid #E0E0E0;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-size: 16px;
+    font-family: "Microsoft YaHei", "Segoe UI", "Arial";
+    font-weight: 500;
+    border-bottom: 2px solid #D0D0D0;
+}
+
+QPushButton#btnMin,
+QPushButton#btnMax,
+QPushButton#btnClose {
+    background-color: transparent;
+    border: 0px;
+    color: #5F5F5F; /* 中灰色 */
+    font-size: 18px;
+    font-weight: normal;
+    padding: 2px;
+    min-width: 30px;
+    min-height: 30px;
+	padding: 0; 
+	margin: 0;
+    border-radius: 2px; /* 轻微的圆角 */
+	font-family: "Segoe UI Symbol", "Arial Unicode MS", "Symbola", "DejaVu Sans", sans-serif;
+	text-align: center;
+}
+
+QPushButton#btnMin {
+    qproperty-text: "\2212"; /* 真正的减号符号 */
+    /* 或者使用: "\2796" */
+}
+
+QPushButton#btnMax {
+    qproperty-text: "\25A1"; /* 空心方框 */
+    /* 或者使用: "\25FB" */
+}
+
+QPushButton#btnClose {
+    qproperty-text: "\00D7"; /* 乘号 × */
+    /* 或者使用: "\2715" */
+}
+
+QPushButton:hover {
+    background-color: #EBEBEB;
+    border: 1px solid #BDBDBD;
+    border-bottom: 2px solid #A8A8A8;
+    color: #212121;
+}
+
+QPushButton#btnMin:hover,
+QPushButton#btnMax:hover {
+    background-color: #E0E0E0; /* 浅灰色 */
+}
+QPushButton#btnClose:hover {
+    background-color: #E81123; /* 微软风格的关闭按钮红色 */
+    color: white;
+}
+
+QPushButton:pressed {
+    background-color: #E0E0E0;
+    border: 1px solid #9E9E9E;
+    color: #212121;
+    padding: 9px 15px 7px 17px;
+    border-bottom: 1px solid #9E9E9E;
+}
+
+QPushButton#btnMin:pressed,
+QPushButton#btnMax:pressed {
+    background-color: #D0D0D0; /* 稍深的灰色 */
+}
+QPushButton#btnClose:pressed {
+    background-color: #F1707A; /* 浅一点的红色 */
+}
+
+QPushButton:focus {
+    border: 1px solid #9E9E9E;
+    border-bottom: 2px solid #9E9E9E;
+}
+
+QPushButton:disabled {
+    background-color: #FAFAFA;
+    color: #BDBDBD;
+    border: 1px solid #EEEEEE;
+    border-bottom: 2px solid #EEEEEE;
+}
+
+/* ===================== */
+/* 主要操作按钮：柔和蓝调 */
+/* ===================== */
+QPushButton[primary="true"] {
+    background-color: #E3F2FD;
+    border: 1px solid #BBDEFB;
+    color: #1565C0;
+    border-bottom: 2px solid #90CAF9;
+}
+
+QPushButton[primary="true"]:hover {
+    background-color: #D0E7FA;
+    border: 1px solid #90CAF9;
+    border-bottom: 2px solid #64B5F6;
+    color: #0D47A1;
+}
+
+QPushButton[primary="true"]:pressed {
+    background-color: #BBDEFB;
+    border: 1px solid #64B5F6;
+    color: #0D47A1;
+    padding: 9px 15px 7px 17px;
+    border-bottom: 1px solid #64B5F6;
+}
+
+/* ===================== */
+/* 成功按钮：浅绿色调     */
+/* ===================== */
+QPushButton[success="true"] {
+    background-color: #F0FFF4;
+    border: 1px solid #C6F6D5;
+    color: #22543D;
+    border-bottom: 2px solid #9AE6B4;
+}
+
+/* ===================== */
+/* 警告按钮：淡黄色调     */
+/* ===================== */
+QPushButton[warning="true"] {
+    background-color: #FFFAF0;
+    border: 1px solid #FEEBC8;
+    color: #7B341E;
+    border-bottom: 2px solid #F6AD55;
+}
+
+/* ===================== */
+/* 危险按钮：淡红色调     */
+/* ===================== */
+QPushButton[danger="true"] {
+    background-color: #FFF5F5;
+    border: 1px solid #FED7D7;
+    color: #C53030;
+    border-bottom: 2px solid #FC8181;
+}
+
+QPushButton[danger="true"]:hover {
+    background-color: #FFE5E5;
+    border: 1px solid #FCA5A5;
+    color: #9B2C2C;
+    border-bottom: 2px solid #F56565;
+}
+
+/* ===================== */
+/* 幽灵按钮样式           */
+/* ===================== */
+QPushButton[ghost="true"] {
+    background-color: transparent;
+    border: 1px solid #E0E0E0;
+    color: #424242;
+    border-bottom: 2px solid #D0D0D0;
+}
+
+QPushButton[ghost="true"]:hover {
+    background-color: #F5F5F5;
+    border: 1px solid #BDBDBD;
+    color: #212121;
+    border-bottom: 2px solid #A8A8A8;
+}
+
+QPushButton[ghost="true"]:pressed {
+    background-color: #EEEEEE;
+    border: 1px solid #9E9E9E;
+    color: #212121;
+    padding: 9px 15px 7px 17px;
+    border-bottom: 1px solid #9E9E9E;
+}

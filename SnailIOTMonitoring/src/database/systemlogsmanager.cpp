@@ -1,20 +1,42 @@
 #include "systemlogsmanager.h"
 
 #include <QDebug>
+#include <QtConcurrent>
 using namespace QXlsx;
 
 SystemLogsManager::SystemLogsManager(QObject *parent)
     : QObject(parent)
 {
     m_db = QSqlDatabase::database();          // 默认连接
-    if (!m_db.isValid() || !m_db.isOpen())
+    if (!m_db.isValid() || (!m_db.isOpen() && !m_db.open())){
         qCritical() << "[SystemLogManager] invalid db connection!";
+    }
 }
 
 SystemLogsManager &SystemLogsManager::instance()
 {
     static SystemLogsManager inst;
     return inst;
+}
+
+void SystemLogsManager::log(const QString &type, const QString &level, const QString &content, int userId, int deviceId)
+{
+    QtConcurrent::run([=]() {
+        QVariantMap log;
+        log["timestamp"] = QDateTime::currentDateTime().toString("yyyy-MM-dd HH:mm:ss");
+        log["log_type"] = type;
+        log["log_level"] = level;
+        log["content"] = content;
+        log["user_id"] = userId;
+        log["device_id"] = deviceId;
+
+        log["user_id"]   = (userId > 0) ? userId : QVariant(QVariant::Int);
+        log["device_id"] = (deviceId > 0) ? deviceId : QVariant(QVariant::Int);
+
+        if (!SystemLogsManager::instance().addLog(log)) {
+            qWarning() << "[SystemLogsManager::log] 添加日志失败！";
+        }
+    });
 }
 
 bool SystemLogsManager::addLog(const QVariantMap &logData)
@@ -25,7 +47,7 @@ bool SystemLogsManager::addLog(const QVariantMap &logData)
                   VALUES (:timestamp, :log_type, :log_level, :content, :user_id, :device_id)
                   )");
 
-    query.bindValue(":timestamp", logData.value("timestamp", QDateTime::currentDateTime()));
+    query.bindValue(":timestamp", logData.value("timestamp", QDateTime::currentDateTime().toString("yyyy-MM-dd HH:mm:ss")));
     query.bindValue(":log_type", logData.value("log_type"));
     query.bindValue(":log_level", logData.value("log_level"));
     query.bindValue(":content", logData.value("content"));
@@ -101,12 +123,14 @@ QList<QVariantMap> SystemLogsManager::getAllLogs()
     QList<QVariantMap> list;
     QSqlQuery query("SELECT * FROM system_logs", m_db);
 
-    while (query.exec() && query.next()) {
-        QVariantMap row;
-        QSqlRecord rec = query.record();
-        for (int i = 0; i < rec.count(); ++i)
-            row[rec.fieldName(i)] = query.value(i);
-        list.append(row);
+    if(query.exec()){
+        while (query.next()) {
+            QVariantMap row;
+            QSqlRecord rec = query.record();
+            for (int i = 0; i < rec.count(); ++i)
+                row[rec.fieldName(i)] = query.value(i);
+            list << row;
+        }
     }
 
     return list;
@@ -182,6 +206,33 @@ QList<QVariantMap> SystemLogsManager::searchLogs(const QString &keyword)
         result.append(row);
     }
     return result;
+}
+
+QList<QVariantMap> SystemLogsManager::getLogByTimeRange(const QString &start, const QString &end)
+{
+    QList<QVariantMap> LogList;
+    QSqlQuery query(m_db);
+    query.prepare("SELECT * FROM system_logs WHERE timestamp BETWEEN :start AND :end ORDER BY timestamp DESC");
+    query.bindValue(":start", start);
+    query.bindValue(":end", end);
+
+    if (query.exec()) {
+        while (query.next()) {
+            QVariantMap log;
+            log["log_id"] = query.value("log_id");
+            log["timestamp"] = query.value("timestamp");
+            log["log_type"] = query.value("log_type");
+            log["log_level"] = query.value("log_level");
+            log["content"] = query.value("content");
+            log["user_id"] = query.value("user_id");
+            log["device_id"] = query.value("device_id");
+            LogList.append(log);
+        }
+    } else {
+        qWarning() << "Failed to get log by time range:" << query.lastError().text();
+    }
+
+    return LogList;
 }
 
 bool SystemLogsManager::exportToCsv(const QList<QVariantMap> &data, const QString &filePath)

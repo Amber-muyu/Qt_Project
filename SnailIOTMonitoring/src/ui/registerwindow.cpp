@@ -17,6 +17,7 @@ RegisterWindow::RegisterWindow(QWidget *parent) :
     ui->lineEditRegisterTelephone->setClearButtonEnabled(true);
 
     connect(ui->btnRegisterOK,&QPushButton::clicked,this,&RegisterWindow::registerReturnLoginPage);
+    connect(ui->btnReturn,&QPushButton::clicked,this,[=](){ emit display(PAGE_LOGIN); });
 }
 
 void RegisterWindow::registerReturnLoginPage()
@@ -31,18 +32,22 @@ void RegisterWindow::registerReturnLoginPage()
     newUser["role"] = "user";
 
     if(userManager.addUser(newUser)){
-        ui->lineEditRegisterName->clear();
-        ui->lineEditRegisterPasswd->clear();
-        ui->lineEditRegisterEmail->clear();
-        ui->lineEditRegisterTelephone->clear();
         emit sendMessage("注册成功");
         emit display(PAGE_LOGIN);
-    }else {
+        SystemLogsManager::log("操作","INFO",
+                               QString("用户：%1 注册成功").arg(newUser["username"].toString()));
         ui->lineEditRegisterName->clear();
         ui->lineEditRegisterPasswd->clear();
         ui->lineEditRegisterEmail->clear();
         ui->lineEditRegisterTelephone->clear();
+    }else {
         emit sendMessage("注册失败");
+        SystemLogsManager::log("操作","WARNING",
+                               QString("用户：%1 注册失败").arg(newUser["username"].toString()));
+        ui->lineEditRegisterName->clear();
+        ui->lineEditRegisterPasswd->clear();
+        ui->lineEditRegisterEmail->clear();
+        ui->lineEditRegisterTelephone->clear();
     }
 }
 

@@ -48,7 +48,7 @@ public:
     {
         if (HomeWindow->objectName().isEmpty())
             HomeWindow->setObjectName(QString::fromUtf8("HomeWindow"));
-        HomeWindow->resize(800, 600);
+        HomeWindow->resize(900, 700);
         gridLayout = new QGridLayout(HomeWindow);
         gridLayout->setSpacing(5);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));

@@ -7,6 +7,7 @@
 #include <QDateTimeEdit>
 #include <QFileDialog>
 #include "../database/datamanager.h"
+#include "../database/systemlogsmanager.h"
 #include "../serial/serialport.h"
 #include "../chart/realtimechart.h"
 

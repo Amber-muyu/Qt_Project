@@ -6,14 +6,29 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>900</width>
+    <height>700</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <layout class="QGridLayout" name="gridLayout_2">
+   <property name="leftMargin">
+    <number>5</number>
+   </property>
+   <property name="topMargin">
+    <number>5</number>
+   </property>
+   <property name="rightMargin">
+    <number>5</number>
+   </property>
+   <property name="bottomMargin">
+    <number>5</number>
+   </property>
+   <property name="spacing">
+    <number>5</number>
+   </property>
    <item row="0" column="1">
     <spacer name="verticalSpacer_3">
      <property name="orientation">
@@ -42,6 +57,9 @@
    </item>
    <item row="1" column="1">
     <layout class="QGridLayout" name="gridLayout">
+     <property name="horizontalSpacing">
+      <number>5</number>
+     </property>
      <item row="0" column="0">
       <layout class="QHBoxLayout" name="horizontalLayout_8">
        <item>
@@ -62,13 +80,13 @@
          <property name="minimumSize">
           <size>
            <width>200</width>
-           <height>60</height>
+           <height>100</height>
           </size>
          </property>
          <property name="font">
           <font>
            <family>Adobe Arabic</family>
-           <pointsize>24</pointsize>
+           <pointsize>28</pointsize>
            <weight>75</weight>
            <bold>true</bold>
           </font>
@@ -161,8 +179,8 @@
         <widget class="QLabel" name="labelLogin">
          <property name="minimumSize">
           <size>
-           <width>121</width>
-           <height>121</height>
+           <width>151</width>
+           <height>151</height>
           </size>
          </property>
          <property name="styleSheet">

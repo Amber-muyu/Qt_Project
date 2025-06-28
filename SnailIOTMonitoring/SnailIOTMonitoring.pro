@@ -1,5 +1,5 @@
 QT       += core gui sql charts serialport
-QT       += xml qml
+QT       += xml qml concurrent
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
@@ -93,6 +93,7 @@ HEADERS += \
     src/ui/resetpasswdwindow.h \
     src/ui/statusbar.h \
     src/ui/titlebar.h \
+    src/utils/commonhelp.h \
     src/utils/utils.h \
 
 FORMS += \

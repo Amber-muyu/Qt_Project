@@ -8,6 +8,7 @@
 #include "database/alarmrecordmanager.h"
 #include "database/alarmrulemanager.h"
 #include "database/systemlogsmanager.h"
+#include "utils/commonhelp.h"
 
 int main(int argc, char *argv[])
 {
@@ -23,6 +24,8 @@ int main(int argc, char *argv[])
     AlarmRecordManager::instance();
     AlarmRuleManager::instance();
     SystemLogsManager::instance();
+
+    CommonHelper::loadStyleSheet(":/resources/btn.css");
 
     MainWindow w;
     w.show();

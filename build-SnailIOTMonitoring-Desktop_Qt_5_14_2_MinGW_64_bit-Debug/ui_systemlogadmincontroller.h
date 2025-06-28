@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QDateTimeEdit>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
@@ -34,6 +35,13 @@ public:
     QSpacerItem *horizontalSpacer;
     QLineEdit *lineEditSelectLog;
     QPushButton *btnExportLog;
+    QWidget *widget_2;
+    QGridLayout *gridLayout_3;
+    QSpacerItem *horizontalSpacer_2;
+    QDateTimeEdit *dateTimeEditTo;
+    QDateTimeEdit *dateTimeEditFrom;
+    QPushButton *btnSearch;
+    QPushButton *btnReset;
     QTableView *tableView;
 
     void setupUi(QWidget *SystemLogAdminController)
@@ -99,10 +107,46 @@ public:
 
         gridLayout_2->addWidget(widget, 1, 0, 1, 1);
 
+        widget_2 = new QWidget(SystemLogAdminController);
+        widget_2->setObjectName(QString::fromUtf8("widget_2"));
+        widget_2->setMinimumSize(QSize(0, 0));
+        gridLayout_3 = new QGridLayout(widget_2);
+        gridLayout_3->setObjectName(QString::fromUtf8("gridLayout_3"));
+        horizontalSpacer_2 = new QSpacerItem(243, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_3->addItem(horizontalSpacer_2, 0, 5, 1, 1);
+
+        dateTimeEditTo = new QDateTimeEdit(widget_2);
+        dateTimeEditTo->setObjectName(QString::fromUtf8("dateTimeEditTo"));
+        dateTimeEditTo->setMinimumSize(QSize(0, 30));
+
+        gridLayout_3->addWidget(dateTimeEditTo, 0, 2, 1, 1);
+
+        dateTimeEditFrom = new QDateTimeEdit(widget_2);
+        dateTimeEditFrom->setObjectName(QString::fromUtf8("dateTimeEditFrom"));
+        dateTimeEditFrom->setMinimumSize(QSize(0, 30));
+
+        gridLayout_3->addWidget(dateTimeEditFrom, 0, 1, 1, 1);
+
+        btnSearch = new QPushButton(widget_2);
+        btnSearch->setObjectName(QString::fromUtf8("btnSearch"));
+        btnSearch->setMinimumSize(QSize(0, 30));
+
+        gridLayout_3->addWidget(btnSearch, 0, 3, 1, 1);
+
+        btnReset = new QPushButton(widget_2);
+        btnReset->setObjectName(QString::fromUtf8("btnReset"));
+        btnReset->setMinimumSize(QSize(0, 30));
+
+        gridLayout_3->addWidget(btnReset, 0, 4, 1, 1);
+
+
+        gridLayout_2->addWidget(widget_2, 2, 0, 1, 1);
+
         tableView = new QTableView(SystemLogAdminController);
         tableView->setObjectName(QString::fromUtf8("tableView"));
 
-        gridLayout_2->addWidget(tableView, 2, 0, 1, 1);
+        gridLayout_2->addWidget(tableView, 3, 0, 1, 1);
 
 
         retranslateUi(SystemLogAdminController);
@@ -117,6 +161,8 @@ public:
         btnDeleteLog->setText(QCoreApplication::translate("SystemLogAdminController", "\345\210\240\351\231\244\346\227\245\345\277\227", nullptr));
         labelSearch->setText(QCoreApplication::translate("SystemLogAdminController", "\346\220\234\347\264\242", nullptr));
         btnExportLog->setText(QCoreApplication::translate("SystemLogAdminController", "\346\227\245\345\277\227\345\257\274\345\207\272", nullptr));
+        btnSearch->setText(QCoreApplication::translate("SystemLogAdminController", "\346\220\234\347\264\242", nullptr));
+        btnReset->setText(QCoreApplication::translate("SystemLogAdminController", "\351\207\215\347\275\256", nullptr));
     } // retranslateUi
 
 };

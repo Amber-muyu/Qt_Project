@@ -15,6 +15,7 @@
 #include "../controller/admindataanalysiscontroller.h"
 #include "../controller/systemlogusercontroller.h"
 #include "../controller/systemlogadmincontroller.h"
+#include "../database/systemlogsmanager.h"
 
 namespace Ui {
 class HomeWindow;

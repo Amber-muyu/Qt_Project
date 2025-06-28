@@ -72,25 +72,25 @@ public:
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         comboBoxDevice = new QComboBox(widget);
         comboBoxDevice->setObjectName(QString::fromUtf8("comboBoxDevice"));
-        comboBoxDevice->setMinimumSize(QSize(0, 30));
+        comboBoxDevice->setMinimumSize(QSize(0, 32));
 
         horizontalLayout->addWidget(comboBoxDevice);
 
         comboBoxItem = new QComboBox(widget);
         comboBoxItem->setObjectName(QString::fromUtf8("comboBoxItem"));
-        comboBoxItem->setMinimumSize(QSize(0, 30));
+        comboBoxItem->setMinimumSize(QSize(0, 32));
 
         horizontalLayout->addWidget(comboBoxItem);
 
         dateTimeEditFrom = new QDateTimeEdit(widget);
         dateTimeEditFrom->setObjectName(QString::fromUtf8("dateTimeEditFrom"));
-        dateTimeEditFrom->setMinimumSize(QSize(0, 30));
+        dateTimeEditFrom->setMinimumSize(QSize(0, 32));
 
         horizontalLayout->addWidget(dateTimeEditFrom);
 
         dateTimeEditTo = new QDateTimeEdit(widget);
         dateTimeEditTo->setObjectName(QString::fromUtf8("dateTimeEditTo"));
-        dateTimeEditTo->setMinimumSize(QSize(0, 30));
+        dateTimeEditTo->setMinimumSize(QSize(0, 32));
 
         horizontalLayout->addWidget(dateTimeEditTo);
 
@@ -100,7 +100,7 @@ public:
 
         btnOK = new QPushButton(widget);
         btnOK->setObjectName(QString::fromUtf8("btnOK"));
-        btnOK->setMinimumSize(QSize(0, 30));
+        btnOK->setMinimumSize(QSize(100, 32));
 
         horizontalLayout->addWidget(btnOK);
 

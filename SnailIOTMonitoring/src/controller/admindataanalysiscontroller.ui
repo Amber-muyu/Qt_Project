@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout" rowstretch="5,10,200,0">
+  <layout class="QGridLayout" name="gridLayout" rowstretch="5,10,200">
    <property name="leftMargin">
     <number>5</number>
    </property>
@@ -52,7 +52,7 @@
         <property name="minimumSize">
          <size>
           <width>0</width>
-          <height>30</height>
+          <height>32</height>
          </size>
         </property>
        </widget>
@@ -62,7 +62,7 @@
         <property name="minimumSize">
          <size>
           <width>0</width>
-          <height>30</height>
+          <height>32</height>
          </size>
         </property>
        </widget>
@@ -72,7 +72,7 @@
         <property name="minimumSize">
          <size>
           <width>0</width>
-          <height>30</height>
+          <height>32</height>
          </size>
         </property>
        </widget>
@@ -82,7 +82,7 @@
         <property name="minimumSize">
          <size>
           <width>0</width>
-          <height>30</height>
+          <height>32</height>
          </size>
         </property>
        </widget>
@@ -104,8 +104,8 @@
        <widget class="QPushButton" name="btnOK">
         <property name="minimumSize">
          <size>
-          <width>0</width>
-          <height>30</height>
+          <width>100</width>
+          <height>32</height>
          </size>
         </property>
         <property name="text">

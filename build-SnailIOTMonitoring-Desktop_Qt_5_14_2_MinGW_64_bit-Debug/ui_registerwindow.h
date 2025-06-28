@@ -53,6 +53,8 @@ public:
     QHBoxLayout *horizontalLayout_6;
     QSpacerItem *horizontalSpacer_3;
     QPushButton *btnRegisterOK;
+    QSpacerItem *horizontalSpacer_11;
+    QPushButton *btnReturn;
     QSpacerItem *horizontalSpacer_4;
     QSpacerItem *horizontalSpacer_10;
     QSpacerItem *verticalSpacer_4;
@@ -61,7 +63,7 @@ public:
     {
         if (RegisterWindow->objectName().isEmpty())
             RegisterWindow->setObjectName(QString::fromUtf8("RegisterWindow"));
-        RegisterWindow->resize(800, 600);
+        RegisterWindow->resize(900, 700);
         gridLayout_2 = new QGridLayout(RegisterWindow);
         gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
         verticalSpacer_3 = new QSpacerItem(20, 59, QSizePolicy::Minimum, QSizePolicy::Expanding);
@@ -226,6 +228,16 @@ public:
 
         horizontalLayout_6->addWidget(btnRegisterOK);
 
+        horizontalSpacer_11 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_6->addItem(horizontalSpacer_11);
+
+        btnReturn = new QPushButton(RegisterWindow);
+        btnReturn->setObjectName(QString::fromUtf8("btnReturn"));
+        btnReturn->setMinimumSize(QSize(100, 50));
+
+        horizontalLayout_6->addWidget(btnReturn);
+
         horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_6->addItem(horizontalSpacer_4);
@@ -259,6 +271,7 @@ public:
         labelRegisterEmail->setText(QCoreApplication::translate("RegisterWindow", "\351\202\256\347\256\261\357\274\232", nullptr));
         labelRegisterTelephone->setText(QCoreApplication::translate("RegisterWindow", "\346\211\213\346\234\272\345\217\267\357\274\232", nullptr));
         btnRegisterOK->setText(QCoreApplication::translate("RegisterWindow", "\347\241\256\350\256\244", nullptr));
+        btnReturn->setText(QCoreApplication::translate("RegisterWindow", "\350\277\224\345\233\236", nullptr));
     } // retranslateUi
 
 };

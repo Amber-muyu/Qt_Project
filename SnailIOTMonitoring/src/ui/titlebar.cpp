@@ -7,6 +7,10 @@ TitleBar::TitleBar(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    ui->btnMin->setObjectName("btnMin");
+    ui->btnMax->setObjectName("btnMax");
+    ui->btnClose->setObjectName("btnClose");
+
     connect(ui->btnMin,&QPushButton::clicked,this,[=]{
         emit signalMin();
     });

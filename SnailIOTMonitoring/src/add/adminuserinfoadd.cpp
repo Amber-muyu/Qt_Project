@@ -23,6 +23,7 @@ AdminUserInfoAdd::AdminUserInfoAdd(QWidget *parent) :
 void AdminUserInfoAdd::addUserInfo()
 {
     UserManager &userManager = UserManager::instance();
+    int currentUserId = userManager.currentUserId();
     QVariantMap newUser;
     newUser["username"] = ui->lineEditAddName->text();
     newUser["password"] = ui->lineEditAddPasswd->text();
@@ -37,6 +38,8 @@ void AdminUserInfoAdd::addUserInfo()
         ui->lineEditAddEmail->clear();
         ui->lineEditAddTelephone->clear();
         emit addFinish("注册成功");
+        SystemLogsManager::log("操作","INFO",
+                               QString("新增用户：%1 成功").arg(newUser["username"].toString()),currentUserId);
         this->close();
     }else {
         ui->lineEditAddName->clear();
@@ -44,6 +47,8 @@ void AdminUserInfoAdd::addUserInfo()
         ui->lineEditAddEmail->clear();
         ui->lineEditAddTelephone->clear();
         QMessageBox::warning(this,"失败","新增用户失败!");
+        SystemLogsManager::log("操作","WARNING",
+                               QString("新增用户：%1 失败").arg(newUser["username"].toString()),currentUserId);
     }
 }
 

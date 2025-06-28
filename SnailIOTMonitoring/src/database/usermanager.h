@@ -34,17 +34,16 @@ public:
     QString getUserRole(int userId);
     QString hashPassword(const QString &password);
 
-signals:
-    void userAdded(int userId);
-    void userUpdated(const QString &username);
-    void userDeleted(int userId);
-    void authenticationFailed(const QString &username);
-    void passwordChanged(const QString &username);
+    //获取当前登录的用户操作
+    int currentUserId() const { return m_userId; }
+    void setUserId(int userId);
+    void clearUserId();
 
 private:
     DatabaseManager &m_dbManager;
     QSqlDatabase m_db;
     bool validateUserData(const QVariantMap &userData);
+    int m_userId= -1;
 };
 
 #endif // USERMANAGE_H

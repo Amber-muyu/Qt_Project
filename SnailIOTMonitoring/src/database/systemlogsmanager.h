@@ -22,6 +22,9 @@ public:
     explicit SystemLogsManager(QObject *parent = nullptr);
 
     static SystemLogsManager &instance();
+    static void log(const QString& type,const QString& level,
+                    const QString& content,
+                    int userId=-1,int deviceId=-1);
 
     bool addLog(const QVariantMap &logData);
     bool deleteLog(int logId);
@@ -31,6 +34,7 @@ public:
     QList<QVariantMap> getLogsByType(const QString &Type);
     QList<QVariantMap> getLogsByLevel(const QString &level);
     QList<QVariantMap> searchLogs(const QString &keyword);
+    QList<QVariantMap> getLogByTimeRange(const QString &start, const QString &end);  // 时间范围查询
 
     bool exportToCsv (const QList<QVariantMap> &data,const QString &filePath);
     bool exportToExcel(const QList<QVariantMap> &data, const QString &filePath);

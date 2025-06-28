@@ -37,7 +37,7 @@ public:
     {
         if (TitleBar->objectName().isEmpty())
             TitleBar->setObjectName(QString::fromUtf8("TitleBar"));
-        TitleBar->resize(800, 600);
+        TitleBar->resize(900, 700);
         gridLayout = new QGridLayout(TitleBar);
         gridLayout->setSpacing(0);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
@@ -67,10 +67,11 @@ public:
         label->setMaximumSize(QSize(301, 31));
         QFont font;
         font.setFamily(QString::fromUtf8("Adobe Arabic"));
-        font.setPointSize(10);
+        font.setPointSize(12);
         font.setBold(true);
         font.setWeight(75);
         label->setFont(font);
+        label->setLayoutDirection(Qt::LeftToRight);
         label->setStyleSheet(QString::fromUtf8(""));
 
         horizontalLayout_2->addWidget(label);
@@ -83,14 +84,14 @@ public:
         gridLayout->addLayout(horizontalLayout_2, 0, 0, 1, 1);
 
         horizontalLayout = new QHBoxLayout();
-        horizontalLayout->setSpacing(5);
+        horizontalLayout->setSpacing(0);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
         btnMin = new QPushButton(TitleBar);
         btnMin->setObjectName(QString::fromUtf8("btnMin"));
         sizePolicy.setHeightForWidth(btnMin->sizePolicy().hasHeightForWidth());
         btnMin->setSizePolicy(sizePolicy);
-        btnMin->setMinimumSize(QSize(31, 31));
+        btnMin->setMinimumSize(QSize(36, 31));
         btnMin->setMaximumSize(QSize(31, 31));
         QFont font1;
         font1.setFamily(QString::fromUtf8("Adobe Arabic"));
@@ -106,7 +107,7 @@ public:
         btnMax->setObjectName(QString::fromUtf8("btnMax"));
         sizePolicy.setHeightForWidth(btnMax->sizePolicy().hasHeightForWidth());
         btnMax->setSizePolicy(sizePolicy);
-        btnMax->setMinimumSize(QSize(31, 31));
+        btnMax->setMinimumSize(QSize(36, 31));
         btnMax->setMaximumSize(QSize(31, 31));
         QFont font2;
         font2.setFamily(QString::fromUtf8("Arial Unicode MS"));
@@ -124,7 +125,7 @@ public:
         btnClose->setObjectName(QString::fromUtf8("btnClose"));
         sizePolicy.setHeightForWidth(btnClose->sizePolicy().hasHeightForWidth());
         btnClose->setSizePolicy(sizePolicy);
-        btnClose->setMinimumSize(QSize(31, 31));
+        btnClose->setMinimumSize(QSize(36, 31));
         btnClose->setMaximumSize(QSize(31, 31));
         QFont font3;
         font3.setFamily(QString::fromUtf8("Adobe Arabic"));
@@ -150,9 +151,9 @@ public:
         TitleBar->setWindowTitle(QCoreApplication::translate("TitleBar", "Form", nullptr));
         label_2->setText(QString());
         label->setText(QCoreApplication::translate("TitleBar", "\350\234\227\347\211\233\347\211\251\350\201\224\347\275\221\347\233\221\346\216\247\345\271\263\345\217\260", nullptr));
-        btnMin->setText(QCoreApplication::translate("TitleBar", "-", nullptr));
-        btnMax->setText(QCoreApplication::translate("TitleBar", "\342\226\241", nullptr));
-        btnClose->setText(QCoreApplication::translate("TitleBar", "\303\227", nullptr));
+        btnMin->setText(QString());
+        btnMax->setText(QString());
+        btnClose->setText(QString());
     } // retranslateUi
 
 };

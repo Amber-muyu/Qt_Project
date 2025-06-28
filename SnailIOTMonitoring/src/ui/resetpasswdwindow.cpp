@@ -10,6 +10,7 @@ ResetPasswdWindow::ResetPasswdWindow(QWidget *parent) :
     ui->lineEditResetPasswd->setPlaceholderText("请输入邮箱或者手机号");
     ui->lineEditResetPasswd->setClearButtonEnabled(true);
     connect(ui->btnResetPasswdOK,&QPushButton::clicked,this,&ResetPasswdWindow::resetReturnLoginPage);
+    connect(ui->btnReturn,&QPushButton::clicked,this,[=](){ emit display(PAGE_LOGIN); });
 }
 
 void ResetPasswdWindow::resetReturnLoginPage()

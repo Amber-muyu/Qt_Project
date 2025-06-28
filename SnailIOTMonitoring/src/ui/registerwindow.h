@@ -4,6 +4,7 @@
 #include <QWidget>
 #include "../utils/utils.h"
 #include "../database/usermanager.h"
+#include "../database/systemlogsmanager.h"
 
 namespace Ui {
 class RegisterWindow;

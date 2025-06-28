@@ -10,6 +10,7 @@
 #include "../database/datamanager.h"
 #include "../database/alarmrecordmanager.h"
 #include "../database/alarmrulemanager.h"
+#include "../database/systemlogsmanager.h"
 #include <QJSEngine>
 
 namespace Ui {

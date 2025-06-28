@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include "../database/usermanager.h"
+#include "../database/systemlogsmanager.h"
 
 namespace Ui {
 class AdminUserInfoModify;

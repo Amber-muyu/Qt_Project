@@ -29,7 +29,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(800, 600);
+        MainWindow->resize(900, 700);
         gridLayout = new QGridLayout(MainWindow);
         gridLayout->setSpacing(0);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));

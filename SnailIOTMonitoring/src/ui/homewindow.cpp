@@ -122,6 +122,7 @@ void HomeWindow::logoutReturnPage()
 {
     emit changePage(0);
     emit display(PAGE_LOGIN);
+    UserManager::instance().clearUserId();
 }
 
 void HomeWindow::getLoginUserName(const QString &msg)

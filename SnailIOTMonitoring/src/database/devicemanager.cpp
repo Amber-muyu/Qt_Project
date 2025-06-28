@@ -69,11 +69,6 @@ bool DeviceManager::addDevice(const QVariantMap &d)
         return false;
     }
 
-    QDateTime installTime = d.value("installation_date").toDateTime();
-    if (!installTime.isValid()) {
-        installTime = QDateTime::currentDateTime(); //默认当前时间
-    }
-
     QSqlQuery q(m_db);
     q.prepare(R"(
               INSERT INTO devices
@@ -86,7 +81,7 @@ bool DeviceManager::addDevice(const QVariantMap &d)
     q.bindValue(":manu",   d.value("manufacturer"));
     q.bindValue(":model",  d.value("model"));
     q.bindValue(":status", d.value("status", kStatusOnline));
-    q.bindValue(":install", installTime);
+    q.bindValue(":install", QDateTime::currentDateTime().toString("yyyy-MM-dd HH:mm:ss"));
 
     if (!q.exec()) {
         qCritical() << "Add device failed:" << q.lastError().text();

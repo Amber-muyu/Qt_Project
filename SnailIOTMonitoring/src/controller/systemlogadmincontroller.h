@@ -23,6 +23,8 @@ public:
 public slots:
     void deleteLog();
     void exportLog();
+    void searchLog();
+    void resetLog();
 
 private:
     Ui::SystemLogAdminController *ui;

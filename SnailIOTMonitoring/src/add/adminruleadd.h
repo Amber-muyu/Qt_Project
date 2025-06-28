@@ -3,6 +3,8 @@
 
 #include <QWidget>
 #include "../database/alarmrulemanager.h"
+#include "../database/usermanager.h"
+#include "../database/systemlogsmanager.h"
 
 namespace Ui {
 class AdminRuleAdd;

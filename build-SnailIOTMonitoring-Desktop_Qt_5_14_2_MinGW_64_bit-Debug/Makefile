@@ -265,6 +265,7 @@ Makefile: ../SnailIOTMonitoring/SnailIOTMonitoring.pro ../../../../Software/Qt5.
 		../../../../Software/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Xml.prl \
 		../../../../Software/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Qml.prl \
 		../../../../Software/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Network.prl \
+		../../../../Software/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Concurrent.prl \
 		../../../../Software/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Core.prl \
 		../../../../Software/Qt5.14.2/5.14.2/mingw73_64/lib/qtmain.prl \
 		.qmake.stash \
@@ -466,6 +467,7 @@ Makefile: ../SnailIOTMonitoring/SnailIOTMonitoring.pro ../../../../Software/Qt5.
 ../../../../Software/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Xml.prl:
 ../../../../Software/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Qml.prl:
 ../../../../Software/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Network.prl:
+../../../../Software/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Concurrent.prl:
 ../../../../Software/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Core.prl:
 ../../../../Software/Qt5.14.2/5.14.2/mingw73_64/lib/qtmain.prl:
 .qmake.stash:

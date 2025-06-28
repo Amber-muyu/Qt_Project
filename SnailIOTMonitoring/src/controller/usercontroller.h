@@ -5,6 +5,7 @@
 #include "../modify/usermodify.h"
 #include "../modify/passwordmodify.h"
 #include "../database/usermanager.h"
+#include "../database/systemlogsmanager.h"
 
 namespace Ui {
 class UserController;
